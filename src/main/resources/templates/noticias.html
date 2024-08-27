@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Noticias</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<section>
+    <h2 class="mt-5">Noticias</h2>
+    <a href="/noticias/novo" class="btn btn-primary mb-3">Nova noticia</a>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>Subtitulo</th>
+            <th>Conteudo</th>
+            <th>Categoria</th>
+            <th>Autor</th>
+            <th>Data</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="noticia : ${noticias}">
+            <tr>
+                <td th:text="${noticia.id}">1</td>
+                <td th:text="${noticia.titulo}">Titulo</td>
+                <td th:text="${noticia.subtitulo}">Subtitulo</td>
+                <td th:text="${noticia.conteudo}">Conteudo</td>
+                <td th:text="${noticia.categoria}">Categoria</td>
+                <td th:text="${noticia.autor}">Autor</td>
+                <td th:text="${noticia.dataPublicacao}">Data de Publicacao</td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
