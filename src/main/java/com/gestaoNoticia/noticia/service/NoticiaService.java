@@ -2,6 +2,7 @@ package com.gestaoNoticia.noticia.service;
 
 import com.gestaoNoticia.db.MongoDBRepository;
 import com.gestaoNoticia.noticia.model.Noticia;
+import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
@@ -80,4 +81,20 @@ public class NoticiaService {
         doc.put("dataPublicacao", noticia.getDataPublicacao());
         return doc;
     }
+
+    public void editarNoticia(Noticia noticia, String id) {
+        try {
+            Document filter = new Document("_id", new ObjectId(id));
+            Document atualizacao = new Document("$set", new Document("titulo", noticia.getTitulo())
+                    .append("subtitulo", noticia.getSubtitulo())
+                    .append("conteudo", noticia.getConteudo())
+                    .append("autor", noticia.getAutor())
+                    .append("categoria", noticia.getCategoria())
+            );
+            collection.updateOne(filter, atualizacao);
+        } catch (MongoException exception) {
+            System.out.println(exception.getMessage());
+        }
+    }
+
 }

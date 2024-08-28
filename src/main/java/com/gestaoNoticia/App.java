@@ -136,10 +136,14 @@ public class App {
 
     private void configurarRotas(Javalin app) {
 
+        app.get("/", ctx -> ctx.redirect("/noticias"));
         app.get("/noticias", NoticiaController::listarNoticias);
         app.get("/noticias/novo", NoticiaController::mostrarFormularioCadastro);
         app.post("/noticias", NoticiaController::adicionarNoticia);
         app.get("/noticias/{id}/remover", NoticiaController::removerNoticia);
+        app.get("/noticias/{id}/editar", NoticiaController::mostrarFormEditar);
+        app.get("/noticias/{id}/view", NoticiaController::verNoticia);
+        app.post("/noticias/editar", NoticiaController::editarNoticia);
 
     }
 

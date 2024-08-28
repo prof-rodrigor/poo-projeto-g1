@@ -13,7 +13,6 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>ID</th>
             <th>Titulo</th>
             <th>Subtitulo</th>
             <th>Conteudo</th>
@@ -25,13 +24,27 @@
         <tbody>
         <th:block th:each="noticia : ${noticias}">
             <tr>
-                <td th:text="${noticia.id}">1</td>
                 <td th:text="${noticia.titulo}">Titulo</td>
                 <td th:text="${noticia.subtitulo}">Subtitulo</td>
                 <td th:text="${noticia.conteudo}">Conteudo</td>
                 <td th:text="${noticia.categoria}">Categoria</td>
                 <td th:text="${noticia.autor}">Autor</td>
                 <td th:text="${noticia.dataPublicacao}">Data de Publicacao</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" th:href="@{/noticias/{id}/view (id=${noticia.id})}">
+                        Ver
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-sm" th:href="@{/noticias/{id}/editar (id=${noticia.id})}">
+                        Editar
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-danger btn-sm" th:href="@{/noticias/{id}/remover (id=${noticia.id})}">
+                        Remover
+                    </a>
+                </td>
             </tr>
         </th:block>
         </tbody>
