@@ -10,10 +10,7 @@ import org.bson.types.ObjectId;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -43,10 +40,10 @@ public class NoticiaService {
         collection.insertOne(doc);
     }
 
-    public void atualizarNoticia(Noticia noticiaAtualizada) {
-        Document doc = noticiaToDocument(noticiaAtualizada);
-        collection.replaceOne(eq("_id", new ObjectId(noticiaAtualizada.getId().toString())), doc);
-    }
+    //public void atualizarNoticia(Noticia noticiaAtualizada) {
+    //    Document doc = noticiaToDocument(noticiaAtualizada);
+    //    collection.replaceOne(eq("_id", new ObjectId(noticiaAtualizada.getId().toString())), doc);
+    //}
 
     public void removerNoticia(String id) {
         collection.deleteOne(eq("_id", new ObjectId(id)));
@@ -97,4 +94,18 @@ public class NoticiaService {
         }
     }
 
+    public List<Noticia> buscarNoticiasFiltradas(Map<String, List<String>> filtros) {
+        List<Noticia> noticias = new LinkedList<>();
+        Document filter = new Document();
+
+        for (Map.Entry<String, List<String>> entry : filtros.entrySet()) {
+            filter.append(entry.getKey(), entry.getValue().getFirst());
+        }
+
+        for (Document doc: collection.find(filter)) {
+            noticias.add(documentToNoticia(doc));
+        }
+
+        return noticias;
+    }
 }

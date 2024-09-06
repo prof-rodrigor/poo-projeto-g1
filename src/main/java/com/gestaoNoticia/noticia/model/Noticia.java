@@ -7,6 +7,7 @@ public class Noticia {
     private LocalDateTime dataPublicacao;
 
     public Noticia(String id, String titulo, String subtitulo, String conteudo, String autor, String categoria, LocalDateTime dataPublicacao) {
+        verificaDados(id, titulo, subtitulo, conteudo, autor, categoria, dataPublicacao);
         this.id = id;
         this.titulo = titulo;
         this.subtitulo = subtitulo;
@@ -29,6 +30,7 @@ public class Noticia {
     }
 
     public void setTitulo(String titulo) {
+        if (titulo == null || titulo.trim().isEmpty()) throw  new IllegalArgumentException();
         this.titulo = titulo;
     }
 
@@ -37,6 +39,7 @@ public class Noticia {
     }
 
     public void setSubtitulo(String subtitulo) {
+        if (subtitulo == null || subtitulo.trim().isEmpty()) throw  new IllegalArgumentException();
         this.subtitulo = subtitulo;
     }
 
@@ -45,6 +48,7 @@ public class Noticia {
     }
 
     public void setConteudo(String conteudo) {
+        if (conteudo == null || conteudo.trim().isEmpty()) throw new IllegalArgumentException();
         this.conteudo = conteudo;
     }
 
@@ -53,6 +57,7 @@ public class Noticia {
     }
 
     public void setAutor(String autor) {
+        if (autor == null || autor.trim().isEmpty()) throw  new IllegalArgumentException();
         this.autor = autor;
     }
 
@@ -61,6 +66,7 @@ public class Noticia {
     }
 
     public void setCategoria(String categoria) {
+        if (categoria == null || categoria.trim().isEmpty()) throw  new IllegalArgumentException();
         this.categoria = categoria;
     }
 
@@ -69,7 +75,18 @@ public class Noticia {
     }
 
     public void setDataPublicacao(LocalDateTime dataPublicacao) {
+        if (dataPublicacao == null) throw new IllegalArgumentException();
         this.dataPublicacao = dataPublicacao;
+    }
+
+    public void verificaDados(String id,String titulo, String subtitulo, String conteudo, String autor, String categoria, LocalDateTime dataPublicacao) {
+        if (id == null || id.trim().isEmpty()) throw new IllegalArgumentException();
+        if (titulo == null || titulo.trim().isEmpty()) throw new IllegalArgumentException();
+        if (subtitulo == null || subtitulo.trim().isEmpty()) throw new IllegalArgumentException();
+        if (conteudo == null || conteudo.trim().isEmpty()) throw new IllegalArgumentException();
+        if (autor == null || autor.trim().isEmpty()) throw new IllegalArgumentException();
+        if (categoria == null || categoria.trim().isEmpty()) throw new IllegalArgumentException();
+        if (dataPublicacao == null) throw new IllegalArgumentException();
     }
 
     @Override

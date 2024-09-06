@@ -1,6 +1,9 @@
 package com.gestaoNoticia;
 
 import com.gestaoNoticia.db.MongoDBRepository;
+import com.gestaoNoticia.login.controller.LoginController;
+import com.gestaoNoticia.login.controller.UsuarioController;
+import com.gestaoNoticia.login.service.UsuarioService;
 import com.gestaoNoticia.noticia.controllers.NoticiaController;
 import com.gestaoNoticia.noticia.service.NoticiaService;
 import io.javalin.Javalin;
@@ -15,6 +18,7 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
+import java.util.Set;
 import java.util.function.Consumer;
 
 public class App {
@@ -33,7 +37,7 @@ public class App {
 
     public void iniciar() {
         Javalin app = inicializarJavalin();
-        //configurarPaginasDeErro(app);
+        configurarPaginasDeErro(app);
         configurarRotas(app);
 
         // Lidando com exceções não tratadas
@@ -45,12 +49,13 @@ public class App {
     private void registrarServicos(JavalinConfig config, MongoDBRepository mongoDBRepository) {
         NoticiaService noticiaService = new NoticiaService(mongoDBRepository);
         config.appData(Keys.NOTICIA_SERVICE.key(), noticiaService);
+        config.appData(Keys.USUARIO_SEVICE.key(), new UsuarioService(mongoDBRepository));
     }
 
-//    private void configurarPaginasDeErro(Javalin app) {
-//        app.error(404, ctx -> ctx.render("erro_404.html"));
-//        app.error(500, ctx -> ctx.render("erro_500.html"));
-//    }
+   private void configurarPaginasDeErro(Javalin app) {
+       app.error(404, ctx -> ctx.render("/erro/erro_404.html"));
+       app.error(500, ctx -> ctx.render("/erro/erro_500.html"));
+   }
 
     private Javalin inicializarJavalin() {
         int porta = obterPortaServidor();
@@ -136,14 +141,24 @@ public class App {
 
     private void configurarRotas(Javalin app) {
 
-        app.get("/", ctx -> ctx.redirect("/noticias"));
-        app.get("/noticias", NoticiaController::listarNoticias);
+        app.get("/", ctx -> ctx.redirect("/login"));
+        app.get("/login", LoginController::mostrarPaginaLogin);
+        app.post("/login", LoginController::processarLogin);
+        app.get("/logout", LoginController::logout);
+
+        app.get("/noticias", NoticiaController::getNoticias);
         app.get("/noticias/novo", NoticiaController::mostrarFormularioCadastro);
         app.post("/noticias", NoticiaController::adicionarNoticia);
+        app.get("/lista", NoticiaController::listarNoticias);
         app.get("/noticias/{id}/remover", NoticiaController::removerNoticia);
         app.get("/noticias/{id}/editar", NoticiaController::mostrarFormEditar);
-        app.get("/noticias/{id}/view", NoticiaController::verNoticia);
         app.post("/noticias/editar", NoticiaController::editarNoticia);
+
+        app.get("/usuarios", UsuarioController::listarUsuarios);
+        app.post("/usuarios/cadastrar", UsuarioController::cadastrarUsuario);
+        app.get("/usuarios/novo", UsuarioController::mostrarFormularioCadastro);
+        app.get("/usuarios/signup", UsuarioController::mostrarFormulario_signup);
+        app.get("/usuarios/{id}/remover", UsuarioController::removerUsuario);
 
     }
 
