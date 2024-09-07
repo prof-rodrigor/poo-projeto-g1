@@ -8,7 +8,7 @@ public class Usuario {
     private String senha;
 
     public Usuario(String id, String login, String nome, String senha) {
-        verificaDados(login, nome, senha, id);
+        //verificaDados(login, nome, senha, id);
         this.id = id;
         this.login = login;
         this.nome = nome;
@@ -54,9 +54,9 @@ public class Usuario {
         this.id = id;
     }
 
-    private static void verificaDados(String login, String nome, String senha, String id) {
-        if (login == null || login.trim().isEmpty() || nome == null || nome.trim().isEmpty() || senha == null || senha.trim().isEmpty() || id == null || id.trim().isEmpty()) throw new IllegalArgumentException();
-    }
+//    private static void verificaDados(String login, String nome, String senha, String id) {
+//        if (login == null || login.trim().isEmpty() || nome == null || nome.trim().isEmpty() || senha == null || senha.trim().isEmpty() || id == null || id.trim().isEmpty()) throw new IllegalArgumentException();
+//    }
 
     @Override
     public String toString() {

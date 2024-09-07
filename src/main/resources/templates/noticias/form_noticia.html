@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org"  th:replace="~{layout :: layout(~{::title}, ~{::section})}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,29 +15,26 @@
     <form action="/noticias" method="post">
         <div class="mb-3">
             <label for="titulo" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" required>
+            <input type="text" class="form-control" id="titulo" name="titulo" maxlength="150" required>
         </div>
         <div class="mb-3">
             <label for="subtitulo" class="form-label">Subtitulo</label>
-            <input type="text" class="form-control" id="subtitulo" name="subtitulo" required>
+            <input type="text" class="form-control" id="subtitulo" name="subtitulo" maxlength="150" required>
         </div>
         <div class="mb-3">
             <label for="conteudo" class="form-label">Conteudo</label>
-            <textarea class="form-control" id="conteudo" name="conteudo" rows="3" required></textarea>
+            <textarea class="form-control" id="conteudo" name="conteudo" rows="3" minlength="100" required></textarea>
         </div>
         <div class="mb-3">
             <label for="categoria" class="form-label">Categoria</label>
-            <input type="text" class="form-control" id="categoria" name="categoria" required>
+            <input type="text" class="form-control" id="categoria" name="categoria" maxlength="30" required>
         </div>
-        <select id="options" name="options" required>
-            <option value="" disabled selected>Selecione uma opção</option>
-            <option value="opcao1">Opção 1</option>
-            <option value="opcao2">Opção 2</option>
-            <option value="opcao3">Opção 3</option>
-        </select>
-
+        <div class="mb-3">
+            <label for="autor" class="form-label">Autor</label>
+            <input type="text" class="form-control" id="autor" name="autor" maxlength="80" required>
+        </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
-        <a href="/noticias" class="btn btn-secondary">Cancelar</a>
+        <a href="/lista" class="btn btn-secondary">Cancelar</a>
     </form>
 </section>
 </body>
