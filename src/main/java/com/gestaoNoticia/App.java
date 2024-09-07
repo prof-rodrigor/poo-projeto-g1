@@ -150,6 +150,7 @@ public class App {
         app.get("/noticias/novo", NoticiaController::mostrarFormularioCadastro);
         app.post("/noticias", NoticiaController::adicionarNoticia);
         app.get("/lista", NoticiaController::listarNoticias);
+        app.get("/noticias/{id}/view", NoticiaController::verNoticia);
         app.get("/noticias/{id}/remover", NoticiaController::removerNoticia);
         app.get("/noticias/{id}/editar", NoticiaController::mostrarFormEditar);
         app.post("/noticias/editar", NoticiaController::editarNoticia);

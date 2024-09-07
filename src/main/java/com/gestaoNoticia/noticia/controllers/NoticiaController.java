@@ -149,6 +149,19 @@ public class NoticiaController {
         }
     }
 
+    public static void verNoticia(Context ctx) {
+        NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
+        String id = ctx.pathParam("id");
+        Optional<Noticia> noticiaOptional = noticiaService.buscarNoticiaPorId(id);
+        if (noticiaOptional.isPresent()) {
+            Noticia noticia = noticiaOptional.get();
+            ctx.attribute("noticia", noticia);
+            ctx.render("/noticias/noticia.html");
+        } else {
+            ctx.redirect("/noticias");
+        }
+    }
+
     private static boolean verificaParametros(Map<String, List<String>> parametros) {
         Set<String> parametrosPermitidos = Set.of("titulo", "autor", "categoria");
         for (String key: parametros.keySet()) {
