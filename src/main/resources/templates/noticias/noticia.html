@@ -12,9 +12,10 @@
             <h2 th:text="${noticia.titulo}">Titulo</h2>
             <h4 th:text="${noticia.subtitulo}">Subtitulo</h4>
         </div>
+        <!-- <p>Data formatada: <span th:text="${#dates.format(today, 'dd/MM/yyyy')}"></span></p>-->
         <div class="mt-3">
             <p th:text="${noticia.categoria}">Categoria</p>
-            <p class="lead text-secondary"><span th:text="${noticia.autor}">Autor</span>  Publicado em <span th:text="${noticia.dataPublicacao}">Data de publicação</span></p>
+            <p class="lead text-secondary"><span th:text="${noticia.autor}">Autor</span>  Publicado em <span th:text="${#temporals.format(noticia.dataPublicacao, 'dd/MM/yyyy')} + ' às ' + ${#temporals.format(noticia.dataPublicacao, 'HH:mm')}">Data de publicação</span></p>
         </div>
         <div class="mt-3">
             <p class="lead" th:text="${noticia.conteudo}">Conteudo</p>

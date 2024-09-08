@@ -7,12 +7,15 @@
 </head>
 <body>
 <section>
-    <h2 class="mt-5">Nova noticia</h2>
+    <h2 class="mt-5">Editar noticia</h2>
+    <div class="alert alert-danger" role="alert" th:if="${error != null}">
+        <p th:text="${error}"></p>
+    </div>
     <form action="/noticias/editar" method="post">
         <input type="hidden" name="id" th:value="${noticia.id}">
         <div class="mb-3">
             <label for="titulo" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" maxlength="150" required th:value="${noticia.titulo}">
+            <input type="text" class="form-control" id="titulo" name="titulo" required maxlength="150" th:value="${noticia.titulo}">
         </div>
         <div class="mb-3">
             <label for="subtitulo" class="form-label">Subtitulo</label>

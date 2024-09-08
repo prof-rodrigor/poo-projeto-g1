@@ -36,7 +36,12 @@ public class UsuarioController {
             return;
         }
 
-        usuarioService.cadastrarUsuario(new Usuario(null, email, nome, senha));
+        Usuario usuario = new Usuario();
+        usuario.setNome(nome);
+        usuario.setLogin(email);
+        usuario.setSenha(senha);
+
+        usuarioService.cadastrarUsuario(usuario);
         if(signup){
             ctx.attribute("info", "Usuário cadastrado com sucesso!");
             ctx.render("/usuarios/login.html");

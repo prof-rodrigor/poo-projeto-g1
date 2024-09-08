@@ -29,7 +29,7 @@
                 <td th:text="${noticia.conteudo}">Conteudo</td>
                 <td th:text="${noticia.categoria}">Categoria</td>
                 <td th:text="${noticia.autor}">Autor</td>
-                <td th:text="${noticia.dataPublicacao}">Data de Publicacao</td>
+                <td th:text="${#temporals.format(noticia.dataPublicacao, 'dd/MM/yyyy')} + ' às ' + ${#temporals.format(noticia.dataPublicacao, 'HH:mm')}">Data de Publicacao</td>
                 <td>
                     <a class="btn btn-primary btn-sm" th:href="@{/noticias/{id}/view (id=${noticia.id})}">
                         Ver

@@ -9,17 +9,17 @@
 <body>
 <section>
     <h2 class="mt-5">Nova noticia</h2>
-    <div th:if="${error != null}">
+    <div class="alert alert-danger" role="alert" th:if="${error != null}">
         <p th:text="${error}"></p>
     </div>
     <form action="/noticias" method="post">
         <div class="mb-3">
             <label for="titulo" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="titulo" name="titulo" maxlength="150" required>
+            <input type="text" class="form-control" id="titulo" name="titulo" maxlength="150" minlength="10" required>
         </div>
         <div class="mb-3">
             <label for="subtitulo" class="form-label">Subtitulo</label>
-            <input type="text" class="form-control" id="subtitulo" name="subtitulo" maxlength="150" required>
+            <input type="text" class="form-control" id="subtitulo" name="subtitulo" minlength="10" maxlength="150" required>
         </div>
         <div class="mb-3">
             <label for="conteudo" class="form-label">Conteudo</label>

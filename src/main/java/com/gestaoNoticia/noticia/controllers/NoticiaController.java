@@ -66,6 +66,7 @@ public class NoticiaController {
             return;
         }
         ctx.attribute("error", ctx.sessionAttribute("error"));
+        ctx.sessionAttribute("error", null);
         ctx.render("/noticias/form_noticia.html");
     }
 
@@ -83,15 +84,26 @@ public class NoticiaController {
     public static void adicionarNoticia(Context ctx) {
         NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
         Noticia noticia = new Noticia();
-        noticia.setTitulo(ctx.formParam("titulo"));
-        noticia.setSubtitulo(ctx.formParam("subtitulo"));
-        noticia.setConteudo(ctx.formParam("conteudo"));
-        noticia.setAutor(ctx.formParam("autor"));
-        noticia.setCategoria(ctx.formParam("categoria"));
-        noticia.setDataPublicacao(LocalDateTime.now());
+        String titulo = ctx.formParam("titulo");
+        String subtitulo = ctx.formParam("subtitulo");
+        String conteudo = ctx.formParam("conteudo");
+        String autor = ctx.formParam("autor");
+        String categoria = ctx.formParam("categoria");
 
-        noticiaService.adicionarNoticia(noticia);
-        ctx.redirect("/lista");
+
+        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria)) {
+            noticia.setTitulo(titulo);
+            noticia.setSubtitulo(subtitulo);
+            noticia.setConteudo(conteudo);
+            noticia.setAutor(autor);
+            noticia.setCategoria(categoria);
+            noticia.setDataPublicacao(LocalDateTime.now());
+            noticiaService.adicionarNoticia(noticia);
+            ctx.redirect("/lista");
+        } else {
+            ctx.sessionAttribute("error", "Preencha todos os campos");
+            ctx.redirect("/noticias/novo");
+        }
     }
 
     public static void removerNoticia(Context ctx) {
@@ -116,6 +128,8 @@ public class NoticiaController {
         if (noticiaOptional.isPresent()) {
             Noticia noticia = noticiaOptional.get();
             ctx.attribute("noticia", noticia);
+            ctx.attribute("error", ctx.sessionAttribute("error"));
+            ctx.sessionAttribute("error", null);
             ctx.render("/noticias/form_editarNoticia.html");
         } else {
             ctx.redirect("/lista");
@@ -127,15 +141,25 @@ public class NoticiaController {
         String id = ctx.formParam("id");
         
         Noticia noticiaAtualizada = new Noticia();
-        
-        noticiaAtualizada.setTitulo(ctx.formParam("titulo"));
-        noticiaAtualizada.setSubtitulo(ctx.formParam("subtitulo"));
-        noticiaAtualizada.setConteudo(ctx.formParam("conteudo"));
-        noticiaAtualizada.setAutor(ctx.formParam("autor"));
-        noticiaAtualizada.setCategoria(ctx.formParam("categoria"));
-        
-        noticiaService.editarNoticia(noticiaAtualizada, id);
-        ctx.redirect("/lista");
+        String titulo = ctx.formParam("titulo");
+        String subtitulo = ctx.formParam("subtitulo");
+        String conteudo =ctx.formParam("conteudo");
+        String autor = ctx.formParam("autor");
+        String categoria = ctx.formParam("categoria");
+
+        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria)) {
+            noticiaAtualizada.setTitulo(titulo);
+            noticiaAtualizada.setSubtitulo(subtitulo);
+            noticiaAtualizada.setConteudo(conteudo);
+            noticiaAtualizada.setAutor(autor);
+            noticiaAtualizada.setCategoria(categoria);
+            noticiaService.editarNoticia(noticiaAtualizada, id);
+            ctx.redirect("/lista");
+        } else {
+            ctx.sessionAttribute("error", "Preencha todos os campos");
+            ctx.redirect("/noticias/"+id+"/editar");
+        }
+
     }
 
     public static void addNoticia(Context ctx) {
@@ -150,6 +174,10 @@ public class NoticiaController {
     }
 
     public static void verNoticia(Context ctx) {
+        if (!usuarioLogado(ctx)) {
+            ctx.redirect("/login");
+            return;
+        }
         NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
         String id = ctx.pathParam("id");
         Optional<Noticia> noticiaOptional = noticiaService.buscarNoticiaPorId(id);
@@ -169,6 +197,15 @@ public class NoticiaController {
                 return false;
             }
         }
+        return true;
+    }
+
+    private static boolean verificaDadosNoticia(String titulo, String subtitulo, String conteudo, String autor, String categoria) {
+        if (titulo== null || titulo.trim().isEmpty()) return false;
+        if (subtitulo == null || subtitulo.trim().isEmpty()) return false;
+        if (conteudo == null || conteudo.trim().isEmpty()) return false;
+        if (autor == null || autor.trim().isEmpty()) return false;
+        if (categoria == null || categoria.trim().isEmpty()) return false;
         return true;
     }
 
