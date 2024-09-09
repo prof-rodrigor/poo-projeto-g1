@@ -101,7 +101,7 @@ public class NoticiaController {
             noticiaService.adicionarNoticia(noticia);
             ctx.redirect("/lista");
         } else {
-            ctx.sessionAttribute("error", "Preencha todos os campos");
+            ctx.sessionAttribute("error", "Preencha todos os campos corretamente");
             ctx.redirect("/noticias/novo");
         }
     }
@@ -156,7 +156,7 @@ public class NoticiaController {
             noticiaService.editarNoticia(noticiaAtualizada, id);
             ctx.redirect("/lista");
         } else {
-            ctx.sessionAttribute("error", "Preencha todos os campos");
+            ctx.sessionAttribute("error", "Preencha todos os campos corretamente");
             ctx.redirect("/noticias/"+id+"/editar");
         }
 
@@ -201,11 +201,16 @@ public class NoticiaController {
     }
 
     private static boolean verificaDadosNoticia(String titulo, String subtitulo, String conteudo, String autor, String categoria) {
-        if (titulo== null || titulo.trim().isEmpty()) return false;
-        if (subtitulo == null || subtitulo.trim().isEmpty()) return false;
-        if (conteudo == null || conteudo.trim().isEmpty()) return false;
-        if (autor == null || autor.trim().isEmpty()) return false;
-        if (categoria == null || categoria.trim().isEmpty()) return false;
+        if (titulo.length() < 10 || titulo.length() > 150) return false;
+        //if (titulo== null || titulo.trim().isEmpty()) return false;
+        if (subtitulo.length() < 10 || subtitulo.length() > 150) return false;
+        //if (subtitulo == null || subtitulo.trim().isEmpty()) return false;
+        if (conteudo.length() < 100 || conteudo.length() > 4000) return false;
+        //if (conteudo == null || conteudo.trim().isEmpty()) return false;
+        if(autor.length() < 10 || autor.length() > 100) return false;
+        //if (autor == null || autor.trim().isEmpty()) return false;
+        if(categoria.length() < 10 || categoria.length() > 100) return false;
+        //if (categoria == null || categoria.trim().isEmpty()) return false;
         return true;
     }
 
