@@ -141,12 +141,16 @@ public class App {
 
     private void configurarRotas(Javalin app) {
 
+        //LOGIN
         app.get("/", ctx -> ctx.redirect("/login"));
         app.get("/login", LoginController::mostrarPaginaLogin);
         app.post("/login", LoginController::processarLogin);
         app.get("/logout", LoginController::logout);
 
-        app.get("/noticias", NoticiaController::getNoticias);
+        // API
+        app.get("/v1/noticias", NoticiaController::getNoticias);
+
+        // NOTÍCIAS
         app.get("/noticias/novo", NoticiaController::mostrarFormularioCadastro);
         app.post("/noticias", NoticiaController::adicionarNoticia);
         app.get("/lista", NoticiaController::listarNoticias);
@@ -155,6 +159,7 @@ public class App {
         app.get("/noticias/{id}/editar", NoticiaController::mostrarFormEditar);
         app.post("/noticias/editar", NoticiaController::editarNoticia);
 
+        // USUÁRIOS
         app.get("/usuarios", UsuarioController::listarUsuarios);
         app.post("/usuarios/cadastrar", UsuarioController::cadastrarUsuario);
         app.get("/usuarios/novo", UsuarioController::mostrarFormularioCadastro);

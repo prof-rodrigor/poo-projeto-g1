@@ -1,8 +1,5 @@
 package com.gestaoNoticia.noticia.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.gestaoNoticia.Keys;
 import com.gestaoNoticia.noticia.model.Noticia;
 import com.gestaoNoticia.noticia.service.NoticiaService;
@@ -13,8 +10,6 @@ import java.util.*;
 
 
 public class NoticiaController {
-
-    private static final ObjectMapper mapper = new ObjectMapper().registerModule(new JavaTimeModule());
 
     public static void getNoticias(Context ctx) {
 
@@ -162,17 +157,6 @@ public class NoticiaController {
 
     }
 
-    public static void addNoticia(Context ctx) {
-        NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
-        try {
-            Noticia noticia = mapper.readValue(ctx.body(), Noticia.class);
-                noticia.setDataPublicacao(LocalDateTime.now());
-                System.out.println(noticia);
-        } catch (JsonProcessingException exception) {
-            System.out.println(exception.getMessage());
-        }
-    }
-
     public static void verNoticia(Context ctx) {
         if (!usuarioLogado(ctx)) {
             ctx.redirect("/login");
@@ -202,15 +186,10 @@ public class NoticiaController {
 
     private static boolean verificaDadosNoticia(String titulo, String subtitulo, String conteudo, String autor, String categoria) {
         if (titulo.length() < 10 || titulo.length() > 150) return false;
-        //if (titulo== null || titulo.trim().isEmpty()) return false;
         if (subtitulo.length() < 10 || subtitulo.length() > 150) return false;
-        //if (subtitulo == null || subtitulo.trim().isEmpty()) return false;
         if (conteudo.length() < 100 || conteudo.length() > 4000) return false;
-        //if (conteudo == null || conteudo.trim().isEmpty()) return false;
         if(autor.length() < 10 || autor.length() > 100) return false;
-        //if (autor == null || autor.trim().isEmpty()) return false;
         if(categoria.length() < 10 || categoria.length() > 100) return false;
-        //if (categoria == null || categoria.trim().isEmpty()) return false;
         return true;
     }
 
