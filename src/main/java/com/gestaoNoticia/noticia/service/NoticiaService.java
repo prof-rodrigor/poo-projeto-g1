@@ -1,10 +1,13 @@
 package com.gestaoNoticia.noticia.service;
 
 import com.gestaoNoticia.db.MongoDBRepository;
+import com.gestaoNoticia.login.controller.LoginController;
 import com.gestaoNoticia.noticia.model.Noticia;
 import com.mongodb.MongoException;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 
@@ -16,6 +19,7 @@ import static com.mongodb.client.model.Filters.eq;
 
 public class NoticiaService {
     private final MongoCollection<Document> collection;
+    private static final Logger logger = LogManager.getLogger(LoginController.class);
 
     public NoticiaService(MongoDBRepository mongoDBRepository) {
         MongoDatabase database = mongoDBRepository.getDatabase("gestaoNoticia");
@@ -90,7 +94,7 @@ public class NoticiaService {
             );
             collection.updateOne(filter, atualizacao);
         } catch (MongoException exception) {
-            System.out.println(exception.getMessage());
+            logger.error(exception.getMessage());
         }
     }
 
