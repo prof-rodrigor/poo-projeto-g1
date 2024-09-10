@@ -41,7 +41,7 @@
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-danger btn-sm" th:href="@{/noticias/{id}/remover (id=${noticia.id})}">
+                    <a class="btn btn-danger btn-sm" th:href="@{/noticias/{id}/remover (id=${noticia.id})}" onclick="return confirm('Tem certeza que deseja remover esta notícia?');">
                         Remover
                     </a>
                 </td>
