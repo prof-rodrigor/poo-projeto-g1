@@ -185,11 +185,11 @@ public class NoticiaController {
     }
 
     private static boolean verificaDadosNoticia(String titulo, String subtitulo, String conteudo, String autor, String categoria) {
-        if (titulo.length() < 10 || titulo.length() > 150) return false;
-        if (subtitulo.length() < 10 || subtitulo.length() > 150) return false;
-        if (conteudo.length() < 100 || conteudo.length() > 7000) return false;
-        if(autor.length() < 2 || autor.length() > 100) return false;
-        if(categoria.length() < 2 || categoria.length() > 100) return false;
+        if (titulo == null || titulo.length() < 10 || titulo.length() > 150) return false;
+        if (subtitulo == null || subtitulo.length() < 10 || subtitulo.length() > 150) return false;
+        if (conteudo == null || conteudo.length() < 100 || conteudo.length() > 7000) return false;
+        if(autor == null || autor.length() < 2 || autor.length() > 100) return false;
+        if(categoria == null || categoria.length() < 2 || categoria.length() > 100) return false;
         return true;
     }
 
