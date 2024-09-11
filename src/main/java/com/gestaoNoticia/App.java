@@ -24,7 +24,7 @@ import java.util.function.Consumer;
 public class App {
     private static final Logger logger = LogManager.getLogger();
 
-    private static final int PORTA_PADRAO = 8000;
+    private static final int PORTA_PADRAO = 8001;
     private static final String PROP_PORTA_SERVIDOR = "porta.servidor";
     private static final String PROP_MONGODB_CONNECTION_STRING = "mongodb.connectionString";
 

@@ -17,6 +17,8 @@ local.properties
 .recommenders
 .externalToolBuilders/
 
+/src/main/resources/application.properties
+
 # Locally stored "Eclipse launch configurations"
 *.launch
 
@@ -63,5 +65,3 @@ local.properties
 # Typically, this file would be tracked if it contains build/dependency configurations:
 #.project
 /logs/app.log
-
-**/application.properties
