@@ -149,6 +149,7 @@ public class App {
 
         // API
         app.get("/v1/noticias", NoticiaController::getNoticias);
+        app.get("/v1/noticias/{id}", NoticiaController::getNoticiaId);
 
         // NOTÍCIAS
         app.get("/noticias/novo", NoticiaController::mostrarFormularioCadastro);

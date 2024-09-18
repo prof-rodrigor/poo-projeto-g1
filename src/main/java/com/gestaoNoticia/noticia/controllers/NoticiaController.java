@@ -20,21 +20,7 @@ public class NoticiaController {
 
         NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
 
-        if (ctx.queryParam("id") != null) {
-            String id = ctx.queryParam("id");
-            if (id.length() == 24) {
-                Optional<Noticia> noticiaOptional = noticiaService.buscarNoticiaPorId(id);
-                if (noticiaOptional.isPresent()) {
-                    Noticia noticia = noticiaOptional.get();
-                    ctx.json(noticia);
-                } else {
-                    ctx.status(404);
-                }
-            } else {
-                ctx.status(400);
-            }
-        }
-        else if (!ctx.queryParamMap().isEmpty()) {
+        if (!ctx.queryParamMap().isEmpty()) {
             if (verificaParametros(ctx.queryParamMap())) {
                 List<Noticia> listaFiltrada = noticiaService.buscarNoticiasFiltradas(ctx.queryParamMap());
                 if (listaFiltrada.size() > 0) {
@@ -55,12 +41,30 @@ public class NoticiaController {
         }
     }
 
+    public static void getNoticiaId(Context ctx) {
+        NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
+        String id = ctx.pathParam("id");
+        if (id.length() == 24) {
+            Optional<Noticia> noticiaOptional = noticiaService.buscarNoticiaPorId(id);
+            if (noticiaOptional.isPresent()) {
+                Noticia noticia = noticiaOptional.get();
+                ctx.json(noticia);
+            } else {
+                ctx.status(404);
+            }
+        } else {
+            ctx.status(400);
+        }
+    }
+
     public static void mostrarFormularioCadastro(Context ctx) {
         if (!usuarioLogado(ctx)) {
             ctx.redirect("/login");
             return;
         }
         ctx.attribute("error", ctx.sessionAttribute("error"));
+        ctx.attribute("valores", ctx.sessionAttribute("valores"));
+        ctx.sessionAttribute("valores", null);
         ctx.sessionAttribute("error", null);
         ctx.render("/noticias/form_noticia.html");
     }
@@ -86,7 +90,7 @@ public class NoticiaController {
         String categoria = ctx.formParam("categoria");
 
 
-        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria)) {
+        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria, ctx)) {
             noticia.setTitulo(titulo);
             noticia.setSubtitulo(subtitulo);
             noticia.setConteudo(conteudo);
@@ -96,7 +100,6 @@ public class NoticiaController {
             noticiaService.adicionarNoticia(noticia);
             ctx.redirect("/lista");
         } else {
-            ctx.sessionAttribute("error", "Preencha todos os campos corretamente");
             ctx.redirect("/noticias/novo");
         }
     }
@@ -124,6 +127,8 @@ public class NoticiaController {
             Noticia noticia = noticiaOptional.get();
             ctx.attribute("noticia", noticia);
             ctx.attribute("error", ctx.sessionAttribute("error"));
+            ctx.attribute("valores", ctx.sessionAttribute("valores"));
+            ctx.sessionAttribute("valores", null);
             ctx.sessionAttribute("error", null);
             ctx.render("/noticias/form_editarNoticia.html");
         } else {
@@ -142,7 +147,7 @@ public class NoticiaController {
         String autor = ctx.formParam("autor");
         String categoria = ctx.formParam("categoria");
 
-        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria)) {
+        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria, ctx)) {
             noticiaAtualizada.setTitulo(titulo);
             noticiaAtualizada.setSubtitulo(subtitulo);
             noticiaAtualizada.setConteudo(conteudo);
@@ -151,7 +156,6 @@ public class NoticiaController {
             noticiaService.editarNoticia(noticiaAtualizada, id);
             ctx.redirect("/lista");
         } else {
-            ctx.sessionAttribute("error", "Preencha todos os campos corretamente");
             ctx.redirect("/noticias/"+id+"/editar");
         }
 
@@ -184,13 +188,27 @@ public class NoticiaController {
         return true;
     }
 
-    private static boolean verificaDadosNoticia(String titulo, String subtitulo, String conteudo, String autor, String categoria) {
-        if (titulo == null || titulo.length() < 10 || titulo.length() > 150) return false;
-        if (subtitulo == null || subtitulo.length() < 10 || subtitulo.length() > 150) return false;
-        if (conteudo == null || conteudo.length() < 100 || conteudo.length() > 7000) return false;
-        if(autor == null || autor.length() < 2 || autor.length() > 100) return false;
-        if(categoria == null || categoria.length() < 2 || categoria.length() > 100) return false;
-        return true;
+    private static boolean verificaDadosNoticia(String titulo, String subtitulo, String conteudo, String autor, String categoria, Context ctx) {
+        Map<String, String> erros = new HashMap<>();
+        Map<String, String> valores = new HashMap<>();
+        if (titulo == null || titulo.length() < 10 || titulo.length() > 150) erros.put("titulo", "Titulo deve conter entre 10 e 150 caracteres");
+        if (subtitulo == null || subtitulo.length() < 10 || subtitulo.length() > 150) erros.put("subtitulo" , "Subtitulo deve conter entre 10 e 150 caracteres");
+        if (conteudo == null || conteudo.length() < 100 || conteudo.length() > 7000) erros.put("conteudo" , "Conteudo deve conter entre 100 e 7000 caracteres");
+        if(autor == null || autor.length() < 2 || autor.length() > 100) erros.put("autor" , "Nome do autor deve conter entre 2 e 100 caracteres");
+        if(categoria == null || categoria.length() < 2 || categoria.length() > 100) erros.put("categoria" , "Categoria deve conter entre 2 e 100 caracteres");
+
+        if (erros.isEmpty()) {
+            return true;
+        } else {
+            valores.put("titulo", titulo);
+            valores.put("subtitulo", subtitulo);
+            valores.put("conteudo", conteudo);
+            valores.put("autor", autor);
+            valores.put("categoria", categoria);
+            ctx.sessionAttribute("error", erros);
+            ctx.sessionAttribute("valores", valores);
+            return false;
+        }
     }
 
     private static boolean usuarioLogado(Context ctx) {
