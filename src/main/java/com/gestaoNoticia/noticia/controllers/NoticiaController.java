@@ -205,6 +205,7 @@ public class NoticiaController {
             valores.put("conteudo", conteudo);
             valores.put("autor", autor);
             valores.put("categoria", categoria);
+
             ctx.sessionAttribute("error", erros);
             ctx.sessionAttribute("valores", valores);
             return false;

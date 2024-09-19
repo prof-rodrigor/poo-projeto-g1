@@ -13,10 +13,8 @@
         <div class="mb-3">
             <label for="titulo" class="form-label">Titulo</label>
             <div th:if="${error != null && #maps.containsKey(error, 'titulo')}">
-                <input type="text" class="form-control" id="titulo" name="titulo" minlength="1" maxlength="150" required th:value="${valores['titulo']}">
-                <div class="invalid-feedback">
-                    <p th:text="${error['titulo']}">Houve erro</p>
-                </div>
+                <input type="text" class="form-control is-invalid" id="titulo" name="titulo" minlength="10" maxlength="150" required th:value="${valores['titulo']}">
+                <p class="invalid-feedback" th:text="${error['titulo']}">Houve erro</p>
             </div>
             <div th:if="${error != null && !#maps.containsKey(error, 'titulo')}">
                 <input type="text" class="form-control" id="titulo" name="titulo" minlength="10" maxlength="150" required th:value="${valores['titulo']}">
@@ -28,8 +26,8 @@
         <div class="mb-3">
             <label for="subtitulo" class="form-label">Subtitulo</label>
             <div th:if="${error != null && #maps.containsKey(error, 'subtitulo')}">
-                <input type="text" class="form-control" id="subtitulo" name="subtitulo" minlength="10" maxlength="150" required th:value="${valores['subtitulo']}">
-                <div class="invalid-feedback" th:text="${error['subtitulo']}"></div>
+                <input type="text" class="form-control is-invalid" id="subtitulo" name="subtitulo" minlength="10" maxlength="150" required th:value="${valores['subtitulo']}">
+                <p class="invalid-feedback" th:text="${error['subtitulo']}">Houve erro</p>
             </div>
             <div th:if="${error != null && !#maps.containsKey(error, 'subtitulo')}">
                 <input type="text" class="form-control" id="subtitulo" name="subtitulo" minlength="10" maxlength="150" required th:value="${valores['subtitulo']}">
@@ -41,8 +39,8 @@
         <div class="mb-3">
             <label for="conteudo" class="form-label">Conteudo</label>
             <div th:if="${error != null && #maps.containsKey(error, 'conteudo')}">
-                <textarea class="form-control" id="conteudo" name="conteudo" rows="3" minlength="100" maxlength="7000" required th:text="${valores['conteudo']}"></textarea>
-                <div class="invalid-feedback" th:text="${error['conteudo']}"></div>
+                <textarea class="form-control is-invalid" id="conteudo" name="conteudo" rows="3" minlength="100" maxlength="7000" required th:text="${valores['conteudo']}"></textarea>
+                <p class="invalid-feedback" th:text="${error['conteudo']}">Houve erro</p>
             </div>
             <div th:if="${error != null && !#maps.containsKey(error, 'conteudo')}">
                 <textarea class="form-control" id="conteudo" name="conteudo" rows="3" minlength="100" maxlength="7000" required th:text="${valores['conteudo']}"></textarea>
@@ -54,8 +52,8 @@
         <div class="mb-3">
             <label for="categoria" class="form-label">Categoria</label>
             <div th:if="${error != null && #maps.containsKey(error, 'categoria')}">
-                <input type="text" class="form-control" id="categoria" name="categoria" minlength="2" maxlength="30" required th:value="${valores['categoria']}">
-                <div class="invalid-feedback" th:text="${error['categoria']}"></div>
+                <input type="text" class="form-control is-invalid" id="categoria" name="categoria" minlength="2" maxlength="30" required th:value="${valores['categoria']}">
+                <p class="invalid-feedback" th:text="${error['categoria']}">Houve erro</p>
             </div>
             <div th:if="${error != null && !#maps.containsKey(error, 'categoria')}">
                 <input type="text" class="form-control" id="categoria" name="categoria" minlength="2" maxlength="30" required th:value="${valores['categoria']}">
@@ -67,8 +65,8 @@
         <div class="mb-3">
             <label for="autor" class="form-label">Autor</label>
             <div th:if="${error != null && #maps.containsKey(error, 'autor')}">
-                <input type="text" class="form-control" id="autor" name="autor" minlength="2" maxlength="80" required th:value="${valores['autor']}">
-                <div class="invalid-feedback" th:text="${error['autor']}"></div>
+                <input type="text" class="form-control is-invalid" id="autor" name="autor" minlength="2" maxlength="80" required th:value="${valores['autor']}">
+                <p class="invalid-feedback" th:text="${error['autor']}">Houve erro</p>
             </div>
             <div th:if="${error != null && !#maps.containsKey(error, 'autor')}">
                 <input type="text" class="form-control" id="autor" name="autor" minlength="2" maxlength="80" required th:value="${valores['autor']}">
