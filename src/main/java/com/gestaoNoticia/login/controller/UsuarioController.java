@@ -21,7 +21,7 @@ public class UsuarioController {
     }
 
     public static void cadastrarUsuario(Context ctx) {
-        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SEVICE.key());
+        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
         String nome = ctx.formParam("nome");
         String email = ctx.formParam("login");
         String senha = ctx.formParam("senha");
@@ -55,7 +55,7 @@ public class UsuarioController {
             ctx.redirect("/login");
             return;
         }
-        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SEVICE.key());
+        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
         List<Usuario> usuarios = usuarioService.listarUsuarios();
         ctx.attribute("usuarios", usuarios);
         ctx.render("/usuarios/lista_usuarios.html");
@@ -66,7 +66,7 @@ public class UsuarioController {
             ctx.redirect("/login");
             return;
         }
-        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SEVICE.key());
+        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
         String id = ctx.pathParam("id");
         usuarioService.removerUsuario(id);
         ctx.redirect("/usuarios");

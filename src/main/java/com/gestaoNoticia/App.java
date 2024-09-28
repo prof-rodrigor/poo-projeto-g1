@@ -18,7 +18,6 @@ import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.Set;
 import java.util.function.Consumer;
 
 public class App {
@@ -49,7 +48,7 @@ public class App {
     private void registrarServicos(JavalinConfig config, MongoDBRepository mongoDBRepository) {
         NoticiaService noticiaService = new NoticiaService(mongoDBRepository);
         config.appData(Keys.NOTICIA_SERVICE.key(), noticiaService);
-        config.appData(Keys.USUARIO_SEVICE.key(), new UsuarioService(mongoDBRepository));
+        config.appData(Keys.USUARIO_SERVICE.key(), new UsuarioService(mongoDBRepository));
     }
 
    private void configurarPaginasDeErro(Javalin app) {

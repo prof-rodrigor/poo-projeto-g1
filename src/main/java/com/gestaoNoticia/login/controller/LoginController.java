@@ -26,7 +26,7 @@ public class LoginController {
         String senha = ctx.formParam("senha");
 
 
-        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SEVICE.key());
+        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
         Usuario usuario = usuarioService.buscarUsuarioPorLogin(login);
         if (usuario != null && BCrypt.checkpw(senha, usuario.getSenha())) {
             ctx.sessionAttribute("usuario", usuario);
