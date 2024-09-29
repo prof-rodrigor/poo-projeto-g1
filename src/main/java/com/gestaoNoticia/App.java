@@ -1,6 +1,8 @@
 package com.gestaoNoticia;
 
 import com.gestaoNoticia.db.MongoDBRepository;
+import com.gestaoNoticia.form.controller.FormController;
+import com.gestaoNoticia.form.service.FormService;
 import com.gestaoNoticia.login.controller.LoginController;
 import com.gestaoNoticia.login.controller.UsuarioController;
 import com.gestaoNoticia.login.service.UsuarioService;
@@ -49,6 +51,7 @@ public class App {
         NoticiaService noticiaService = new NoticiaService(mongoDBRepository);
         config.appData(Keys.NOTICIA_SERVICE.key(), noticiaService);
         config.appData(Keys.USUARIO_SERVICE.key(), new UsuarioService(mongoDBRepository));
+        config.appData(Keys.FORM_SERVICE.key(), new FormService());
     }
 
    private void configurarPaginasDeErro(Javalin app) {
@@ -166,6 +169,10 @@ public class App {
         app.get("/usuarios/signup", UsuarioController::mostrarFormulario_signup);
         app.get("/usuarios/{id}/remover", UsuarioController::removerUsuario);
 
+        // Rotas para o controlador de formulários
+        FormController formController = new FormController();
+        app.get("/form/{formId}", formController::abrirFormulario);
+        app.post("/form/{formId}", formController::validarFormulario);
     }
 
     private Properties carregarPropriedades() {

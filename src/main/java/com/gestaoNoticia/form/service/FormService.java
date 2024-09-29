@@ -19,8 +19,12 @@ public class FormService {
     }
 
     public void iniciarFormularios(){
-        Formulario form = new Formulario("usuario", "Cadastro de Usuário");
-        form.addCampo(new Campo("nome", "Nome", new ValidadorTexto(3, 100), true));
+        Formulario form = new Formulario("noticia", "Cadastro de Noticia");
+        form.addCampo(new Campo("titulo", "Titulo", "input", new ValidadorTexto(10, 150), true));
+        form.addCampo(new Campo("subtitulo", "Subtitulo","input", new ValidadorTexto(10, 150), true));
+        form.addCampo(new Campo("conteudo", "Conteudo","textarea", new ValidadorTexto(100, 7000), true));
+        form.addCampo(new Campo("categoria", "Categoria","input", new ValidadorTexto(2, 30), true));
+        form.addCampo(new Campo("autor", "Autor","input", new ValidadorTexto(2, 80), true));
         formularios.put(form.getId(), form);
     }
 }

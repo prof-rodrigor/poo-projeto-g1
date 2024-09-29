@@ -5,13 +5,15 @@ public class Campo {
     private String id;
     private String label;
     private String valor;
+    private String entrada;
     private ValidadorCampo validador;
     private boolean obrigatorio;
 
 
-    public Campo(String id, String label, ValidadorCampo validador, boolean obrigatorio){
+    public Campo(String id, String label, String entrada, ValidadorCampo validador, boolean obrigatorio){
         this.id = id;
         this.label = label;
+        this.entrada = entrada;
         this.validador = validador;
         this.obrigatorio = obrigatorio;
     }
@@ -30,6 +32,14 @@ public class Campo {
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public String getEntrada() {
+        return entrada;
+    }
+
+    public void setEntrada(String entrada) {
+        this.entrada = entrada;
     }
 
     public String getValor() {
