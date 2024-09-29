@@ -1,16 +1,26 @@
 package com.gestaoNoticia.form.service;
 
+import com.gestaoNoticia.AbstractService;
+import com.gestaoNoticia.db.MongoDBRepository;
 import com.gestaoNoticia.form.model.Campo;
 import com.gestaoNoticia.form.model.Formulario;
 import com.gestaoNoticia.form.model.validadores.ValidadorTexto;
+import com.gestaoNoticia.noticia.model.PersistenciaNoticia;
+import com.gestaoNoticia.noticia.service.NoticiaService;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class FormService {
+public class FormService extends AbstractService {
 
     private final Map<String, Formulario> formularios = new LinkedHashMap<>();
+    private final MongoCollection<Document> noticiasColletion;
 
-    public FormService(){
+    public FormService(MongoDBRepository mongoDBRepository){
+        super(mongoDBRepository);
+        this.noticiasColletion = mongoDBRepository.getDatabase("gestaoNoticia").getCollection("noticias");
         iniciarFormularios();
     }
 
@@ -25,6 +35,7 @@ public class FormService {
         form.addCampo(new Campo("conteudo", "Conteudo","textarea", new ValidadorTexto(100, 7000), true));
         form.addCampo(new Campo("categoria", "Categoria","input", new ValidadorTexto(2, 30), true));
         form.addCampo(new Campo("autor", "Autor","input", new ValidadorTexto(2, 80), true));
+        form.setPersistencia(new PersistenciaNoticia(new NoticiaService(mongoDBRepository)));
         formularios.put(form.getId(), form);
     }
 }

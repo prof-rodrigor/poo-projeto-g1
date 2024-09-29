@@ -15389,3 +15389,923 @@ org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating OGNL 
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
 	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
 Caused by: ognl.OgnlException: source is null for getProperty(null, "nome")
+2024-09-29 00:29:41 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 00:29:41 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 00:29:41 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 00:29:41 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3d3f761a, com.mongodb.Jep395RecordCodecProvider@3546d80f, com.mongodb.KotlinCodecProvider@579d011c]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 00:29:41 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 00:29:41 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 00:29:41 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 00:29:41 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 00:29:42 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=395903000, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 00:29:43 BRT 2024, lastUpdateTimeNanos=2460470792800}
+2024-09-29 00:29:42 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=394321700, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 00:29:43 BRT 2024, lastUpdateTimeNanos=2460470792800}
+2024-09-29 00:29:42 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=395226100, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 00:29:43 BRT 2024, lastUpdateTimeNanos=2460470792700}
+2024-09-29 00:29:42 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 00:29:43 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 00:29:43 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 00:29:43 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 00:29:43 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 00:29:43 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@6f89f665{/,null,AVAILABLE}
+2024-09-29 00:29:43 INFO  AbstractConnector:376 - Started ServerConnector@767e20cf{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 00:29:43 INFO  Server:439 - Started Server@66b72664{STARTING}[11.0.21,sto=0] @4082ms
+2024-09-29 00:29:43 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 00:29:43 INFO  Javalin:16 - Javalin started in 2025ms \o/
+2024-09-29 00:29:43 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 00:29:43 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 00:29:43 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 09:52:51 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 09:52:51 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 09:52:51 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 09:52:51 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 09:52:51 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 09:52:52 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 09:52:52 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 09:52:52 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 09:52:52 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=403236700, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 09:52:54 BRT 2024, lastUpdateTimeNanos=36253065964600}
+2024-09-29 09:52:52 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=405217000, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 09:52:54 BRT 2024, lastUpdateTimeNanos=36253065964500}
+2024-09-29 09:52:52 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=404595900, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 09:52:54 BRT 2024, lastUpdateTimeNanos=36253065964600}
+2024-09-29 09:52:52 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 09:52:53 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 09:52:53 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 09:52:53 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 09:52:53 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 09:52:53 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@1059754c{/,null,AVAILABLE}
+2024-09-29 09:52:53 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 09:52:53 INFO  Server:439 - Started Server@2e6ee0bc{STARTING}[11.0.21,sto=0] @4220ms
+2024-09-29 09:52:53 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 09:52:53 INFO  Javalin:16 - Javalin started in 2280ms \o/
+2024-09-29 09:52:53 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 09:52:53 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 09:52:53 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 10:50:59 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 10:50:59 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 10:50:59 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 10:51:00 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@452e26d0, com.mongodb.Jep395RecordCodecProvider@46ab18da, com.mongodb.KotlinCodecProvider@790174f2]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 10:51:00 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 10:51:00 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 10:51:00 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 10:51:00 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 10:51:01 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=371520900, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 10:51:00 BRT 2024, lastUpdateTimeNanos=39739302605100}
+2024-09-29 10:51:01 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=371520800, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 10:51:00 BRT 2024, lastUpdateTimeNanos=39739302605000}
+2024-09-29 10:51:01 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=370584200, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 10:51:00 BRT 2024, lastUpdateTimeNanos=39739302605100}
+2024-09-29 10:51:01 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 10:51:01 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 10:51:01 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 10:51:01 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 10:51:01 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 10:51:01 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@c96a4ea{/,null,AVAILABLE}
+2024-09-29 10:51:01 INFO  AbstractConnector:376 - Started ServerConnector@10ded6a9{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 10:51:01 INFO  Server:439 - Started Server@74a9c4b0{STARTING}[11.0.21,sto=0] @4036ms
+2024-09-29 10:51:01 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 10:51:01 INFO  Javalin:16 - Javalin started in 2044ms \o/
+2024-09-29 10:51:01 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 10:51:01 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 10:51:01 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:17:55 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:17:56 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:17:56 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:17:56 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:17:56 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:17:56 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:17:56 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:17:56 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:17:57 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=431992400, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:17:57 BRT 2024, lastUpdateTimeNanos=363223014700}
+2024-09-29 11:17:57 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=434935800, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:17:57 BRT 2024, lastUpdateTimeNanos=363223015300}
+2024-09-29 11:17:57 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=431077800, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:17:57 BRT 2024, lastUpdateTimeNanos=363223014700}
+2024-09-29 11:17:57 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:17:57 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:17:57 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:17:57 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:17:58 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:17:58 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@5f2afe62{/,null,AVAILABLE}
+2024-09-29 11:17:58 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:17:58 INFO  Server:439 - Started Server@bae47a0{STARTING}[11.0.21,sto=0] @4322ms
+2024-09-29 11:17:58 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:17:58 INFO  Javalin:16 - Javalin started in 2090ms \o/
+2024-09-29 11:17:58 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:17:58 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:17:58 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:17:58 WARN  Javalin:26 - Uncaught exception
+java.util.ConcurrentModificationException: null
+	at java.base/java.util.ArrayList$ArrayListSpliterator.tryAdvance(ArrayList.java:1687) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEachWithCancel(ReferencePipeline.java:129) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:527) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:513) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.base/java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:647) ~[?:?]
+	at io.javalin.http.util.MethodNotAllowedUtil.findAvailableHttpHandlerTypes(MethodNotAllowedUtil.kt:17) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$8(DefaultTasks.kt:68) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-09-29 11:18:01 ERROR App:46 - Erro não tratado
+java.lang.IllegalArgumentException: null
+	at com.gestaoNoticia.noticia.model.Noticia.verificaDados(Noticia.java:83) ~[classes/:?]
+	at com.gestaoNoticia.noticia.model.Noticia.<init>(Noticia.java:10) ~[classes/:?]
+	at com.gestaoNoticia.noticia.model.PersistenciaNoticia.persistir(PersistenciaNoticia.java:25) ~[classes/:?]
+	at com.gestaoNoticia.form.model.Formulario.persistir(Formulario.java:49) ~[classes/:?]
+	at com.gestaoNoticia.form.controller.FormController.validarFormulario(FormController.java:55) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-09-29 11:18:02 ERROR App:46 - Erro não tratado
+java.lang.IllegalArgumentException: null
+	at com.gestaoNoticia.noticia.model.Noticia.verificaDados(Noticia.java:83) ~[classes/:?]
+	at com.gestaoNoticia.noticia.model.Noticia.<init>(Noticia.java:10) ~[classes/:?]
+	at com.gestaoNoticia.noticia.model.PersistenciaNoticia.persistir(PersistenciaNoticia.java:25) ~[classes/:?]
+	at com.gestaoNoticia.form.model.Formulario.persistir(Formulario.java:49) ~[classes/:?]
+	at com.gestaoNoticia.form.controller.FormController.validarFormulario(FormController.java:55) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-09-29 11:18:58 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:18:59 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:18:59 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:18:59 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:18:59 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:18:59 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:18:59 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:18:59 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:19:00 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=503471000, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:19:00 BRT 2024, lastUpdateTimeNanos=426185865400}
+2024-09-29 11:19:00 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=502532800, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:19:00 BRT 2024, lastUpdateTimeNanos=426185867300}
+2024-09-29 11:19:00 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=503471000, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:19:00 BRT 2024, lastUpdateTimeNanos=426185865300}
+2024-09-29 11:19:00 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:19:00 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:19:00 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:19:00 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:19:01 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:19:01 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@5f2afe62{/,null,AVAILABLE}
+2024-09-29 11:19:01 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:19:01 INFO  Server:439 - Started Server@bae47a0{STARTING}[11.0.21,sto=0] @4086ms
+2024-09-29 11:19:01 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:19:01 INFO  Javalin:16 - Javalin started in 2159ms \o/
+2024-09-29 11:19:01 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:19:01 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:19:01 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:19:04 ERROR App:46 - Erro não tratado
+java.lang.IllegalArgumentException: null
+	at com.gestaoNoticia.noticia.model.Noticia.verificaDados(Noticia.java:83) ~[classes/:?]
+	at com.gestaoNoticia.noticia.model.Noticia.<init>(Noticia.java:10) ~[classes/:?]
+	at com.gestaoNoticia.noticia.model.PersistenciaNoticia.persistir(PersistenciaNoticia.java:25) ~[classes/:?]
+	at com.gestaoNoticia.form.model.Formulario.persistir(Formulario.java:49) ~[classes/:?]
+	at com.gestaoNoticia.form.controller.FormController.validarFormulario(FormController.java:55) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-09-29 11:21:12 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:21:12 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:21:12 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:21:13 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@46ab18da, com.mongodb.Jep395RecordCodecProvider@790174f2, com.mongodb.KotlinCodecProvider@42257bdd]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:21:13 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:21:13 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:21:13 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:21:13 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:21:13 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=370194000, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:21:14 BRT 2024, lastUpdateTimeNanos=559784140100}
+2024-09-29 11:21:13 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=371404700, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:21:14 BRT 2024, lastUpdateTimeNanos=559784140200}
+2024-09-29 11:21:13 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=371681500, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:21:14 BRT 2024, lastUpdateTimeNanos=559784140200}
+2024-09-29 11:21:13 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:21:14 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:21:14 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:21:14 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:21:14 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:21:14 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@28782602{/,null,AVAILABLE}
+2024-09-29 11:21:14 INFO  AbstractConnector:376 - Started ServerConnector@c5dc4a2{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:21:14 INFO  Server:439 - Started Server@85ec632{STARTING}[11.0.21,sto=0] @3495ms
+2024-09-29 11:21:14 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:21:14 INFO  Javalin:16 - Javalin started in 1867ms \o/
+2024-09-29 11:21:14 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:21:14 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:21:14 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:21:19 ERROR App:46 - Erro não tratado
+java.lang.NullPointerException: Cannot invoke "com.gestaoNoticia.form.model.Campo.getValor()" because the return value of "com.gestaoNoticia.form.model.Formulario.getCampo(String)" is null
+	at com.gestaoNoticia.noticia.model.PersistenciaNoticia.persistir(PersistenciaNoticia.java:19) ~[classes/:?]
+	at com.gestaoNoticia.form.model.Formulario.persistir(Formulario.java:49) ~[classes/:?]
+	at com.gestaoNoticia.form.controller.FormController.validarFormulario(FormController.java:55) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-09-29 11:25:13 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:25:14 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:25:14 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:25:14 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:25:14 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:25:14 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:25:14 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:25:14 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:25:15 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=361693500, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:25:15 BRT 2024, lastUpdateTimeNanos=801111453100}
+2024-09-29 11:25:15 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=361693400, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:25:15 BRT 2024, lastUpdateTimeNanos=801111453100}
+2024-09-29 11:25:15 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=362062400, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:25:15 BRT 2024, lastUpdateTimeNanos=801111453000}
+2024-09-29 11:25:15 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:25:15 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:25:15 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:25:15 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:25:16 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:25:16 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@5f2afe62{/,null,AVAILABLE}
+2024-09-29 11:25:16 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:25:16 INFO  Server:439 - Started Server@bae47a0{STARTING}[11.0.21,sto=0] @3595ms
+2024-09-29 11:25:16 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:25:16 INFO  Javalin:16 - Javalin started in 1991ms \o/
+2024-09-29 11:25:16 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:25:16 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:25:16 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:28:26 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:28:26 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:28:26 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:28:26 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:28:26 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:28:26 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:28:26 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:28:26 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:28:27 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=397149100, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:28:27 BRT 2024, lastUpdateTimeNanos=993458564300}
+2024-09-29 11:28:27 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=394833100, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:28:27 BRT 2024, lastUpdateTimeNanos=993458564400}
+2024-09-29 11:28:27 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=397150300, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:28:27 BRT 2024, lastUpdateTimeNanos=993458564300}
+2024-09-29 11:28:27 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:28:28 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:28:28 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:28:28 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:28:28 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:28:28 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@5f2afe62{/,null,AVAILABLE}
+2024-09-29 11:28:28 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:28:28 INFO  Server:439 - Started Server@bae47a0{STARTING}[11.0.21,sto=0] @3518ms
+2024-09-29 11:28:28 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:28:28 INFO  Javalin:16 - Javalin started in 1944ms \o/
+2024-09-29 11:28:28 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:28:28 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:28:28 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:28:36 INFO  LoginController:33 - Usuário 'elk@gmail.com' autenticado com sucesso.
+2024-09-29 11:28:39 ERROR TemplateEngine:1141 - [THYMELEAF][JettyServerThreadPool-51] Exception processing template "/forms/formulario.html": Exception evaluating OGNL expression: "form.nome" (template: "/forms/formulario.html" - line 10, col 9)
+org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating OGNL expression: "form.nome" (template: "/forms/formulario.html" - line 10, col 9)
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:199) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:104) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1064) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1053) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at io.javalin.rendering.template.JavalinThymeleaf.render(JavalinThymeleaf.kt:33) ~[javalin-rendering-6.1.6.jar:6.1.6]
+	at io.javalin.http.Context.render(Context.kt:491) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.Context.render(Context.kt:494) ~[javalin-6.2.0.jar:6.2.0]
+	at com.gestaoNoticia.noticia.controllers.NoticiaController.mostrarFormularioCadastro(NoticiaController.java:69) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: ognl.OgnlException: source is null for getProperty(null, "nome")
+2024-09-29 11:28:39 ERROR App:46 - Erro não tratado
+org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating OGNL expression: "form.nome" (template: "/forms/formulario.html" - line 10, col 9)
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:199) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:104) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1064) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1053) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at io.javalin.rendering.template.JavalinThymeleaf.render(JavalinThymeleaf.kt:33) ~[javalin-rendering-6.1.6.jar:6.1.6]
+	at io.javalin.http.Context.render(Context.kt:491) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.Context.render(Context.kt:494) ~[javalin-6.2.0.jar:6.2.0]
+	at com.gestaoNoticia.noticia.controllers.NoticiaController.mostrarFormularioCadastro(NoticiaController.java:69) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: ognl.OgnlException: source is null for getProperty(null, "nome")
+2024-09-29 11:34:20 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:34:20 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:34:20 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:34:20 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:34:20 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:34:20 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:34:20 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:34:20 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:34:21 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=359946600, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:34:21 BRT 2024, lastUpdateTimeNanos=1347298155700}
+2024-09-29 11:34:21 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=361396900, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:34:21 BRT 2024, lastUpdateTimeNanos=1347298155800}
+2024-09-29 11:34:21 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=361396800, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:34:21 BRT 2024, lastUpdateTimeNanos=1347298155800}
+2024-09-29 11:34:21 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:34:21 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:34:22 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:34:22 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:34:22 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:34:22 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@5f2afe62{/,null,AVAILABLE}
+2024-09-29 11:34:22 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:34:22 INFO  Server:439 - Started Server@bae47a0{STARTING}[11.0.21,sto=0] @3679ms
+2024-09-29 11:34:22 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:34:22 INFO  Javalin:16 - Javalin started in 1969ms \o/
+2024-09-29 11:34:22 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:34:22 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:34:22 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:34:27 INFO  LoginController:33 - Usuário 'elk@gmail.com' autenticado com sucesso.
+2024-09-29 11:34:29 ERROR App:46 - Erro não tratado
+java.lang.IllegalArgumentException: 'formId' is not a valid path-param for '/noticias/novo'.
+	at io.javalin.http.servlet.JavalinServletContextKt.pathParamOrThrow(JavalinServletContext.kt:212) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServletContext.pathParam(JavalinServletContext.kt:147) ~[javalin-6.2.0.jar:6.2.0]
+	at com.gestaoNoticia.noticia.controllers.NoticiaController.mostrarFormularioCadastro(NoticiaController.java:73) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+2024-09-29 11:36:41 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:36:42 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:36:42 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:36:42 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:36:42 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:36:42 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:36:42 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:36:42 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:36:43 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=377654700, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:36:43 BRT 2024, lastUpdateTimeNanos=1489158787200}
+2024-09-29 11:36:43 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=379546300, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:36:43 BRT 2024, lastUpdateTimeNanos=1489158787200}
+2024-09-29 11:36:43 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=374715200, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:36:43 BRT 2024, lastUpdateTimeNanos=1489158787300}
+2024-09-29 11:36:43 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:36:43 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:36:43 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:36:43 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:36:43 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:36:44 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@64040287{/,null,AVAILABLE}
+2024-09-29 11:36:44 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:36:44 INFO  Server:439 - Started Server@df5f5c0{STARTING}[11.0.21,sto=0] @3625ms
+2024-09-29 11:36:44 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:36:44 INFO  Javalin:16 - Javalin started in 1998ms \o/
+2024-09-29 11:36:44 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:36:44 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:36:44 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:36:54 INFO  LoginController:33 - Usuário 'elk@gmail.com' autenticado com sucesso.
+2024-09-29 11:37:08 ERROR TemplateEngine:1141 - [THYMELEAF][JettyServerThreadPool-50] Exception processing template "/forms/formulario.html": Exception evaluating OGNL expression: "form.nome" (template: "/forms/formulario.html" - line 10, col 9)
+org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating OGNL expression: "form.nome" (template: "/forms/formulario.html" - line 10, col 9)
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:199) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:104) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1064) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1053) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at io.javalin.rendering.template.JavalinThymeleaf.render(JavalinThymeleaf.kt:33) ~[javalin-rendering-6.1.6.jar:6.1.6]
+	at io.javalin.http.Context.render(Context.kt:491) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.Context.render(Context.kt:494) ~[javalin-6.2.0.jar:6.2.0]
+	at com.gestaoNoticia.noticia.controllers.NoticiaController.mostrarFormularioCadastro(NoticiaController.java:76) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: ognl.OgnlException: source is null for getProperty(null, "nome")
+2024-09-29 11:37:08 ERROR App:46 - Erro não tratado
+org.thymeleaf.exceptions.TemplateProcessingException: Exception evaluating OGNL expression: "form.nome" (template: "/forms/formulario.html" - line 10, col 9)
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:199) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.OGNLVariableExpressionEvaluator.evaluate(OGNLVariableExpressionEvaluator.java:104) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.VariableExpression.executeVariableExpression(VariableExpression.java:166) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.SimpleExpression.executeSimple(SimpleExpression.java:66) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:109) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.expression.Expression.execute(Expression.java:138) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:144) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateModel.process(TemplateModel.java:136) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:661) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1103) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1064) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1053) ~[thymeleaf-3.1.2.RELEASE.jar:3.1.2.RELEASE]
+	at io.javalin.rendering.template.JavalinThymeleaf.render(JavalinThymeleaf.kt:33) ~[javalin-rendering-6.1.6.jar:6.1.6]
+	at io.javalin.http.Context.render(Context.kt:491) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.Context.render(Context.kt:494) ~[javalin-6.2.0.jar:6.2.0]
+	at com.gestaoNoticia.noticia.controllers.NoticiaController.mostrarFormularioCadastro(NoticiaController.java:76) ~[classes/:?]
+	at io.javalin.router.Endpoint.handle(Endpoint.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.router.ParsedEndpoint.handle(ParsedEndpoint.kt:15) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.DefaultTasks.HTTP$lambda$9$lambda$7$lambda$6(DefaultTasks.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleTask(JavalinServlet.kt:99) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handleSync(JavalinServlet.kt:64) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.handle(JavalinServlet.kt:50) ~[javalin-6.2.0.jar:6.2.0]
+	at io.javalin.http.servlet.JavalinServlet.service(JavalinServlet.kt:30) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:52) ~[javalin-6.2.0.jar:6.2.0]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:587) ~[jetty-jakarta-servlet-api-5.0.2.jar:?]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:764) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:529) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1580) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:221) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1381) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:176) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:484) ~[jetty-servlet-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1553) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1303) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:173) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.Server.handle(Server.java:563) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:287) ~[jetty-server-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53) ~[jetty-io-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194) ~[jetty-util-11.0.21.jar:11.0.21]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149) ~[jetty-util-11.0.21.jar:11.0.21]
+	at java.base/java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: ognl.OgnlException: source is null for getProperty(null, "nome")
+2024-09-29 11:44:00 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:44:00 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:44:00 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:44:00 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@46ab18da, com.mongodb.Jep395RecordCodecProvider@790174f2, com.mongodb.KotlinCodecProvider@42257bdd]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:44:00 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:44:00 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:44:00 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:44:00 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:44:01 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=420038200, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:44:01 BRT 2024, lastUpdateTimeNanos=1927372832100}
+2024-09-29 11:44:01 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=418263900, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:44:01 BRT 2024, lastUpdateTimeNanos=1927372832100}
+2024-09-29 11:44:01 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=416703300, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:44:01 BRT 2024, lastUpdateTimeNanos=1927372834900}
+2024-09-29 11:44:01 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:44:02 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:44:02 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:44:02 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:44:02 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:44:02 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@60c16548{/,null,AVAILABLE}
+2024-09-29 11:44:02 INFO  AbstractConnector:376 - Started ServerConnector@c5dc4a2{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:44:02 INFO  Server:439 - Started Server@1c05a54d{STARTING}[11.0.21,sto=0] @3520ms
+2024-09-29 11:44:02 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:44:02 INFO  Javalin:16 - Javalin started in 2110ms \o/
+2024-09-29 11:44:02 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:44:02 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:44:02 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:44:20 INFO  LoginController:33 - Usuário 'elk@gmail.com' autenticado com sucesso.
+2024-09-29 11:46:11 INFO  App:65 - Iniciando aplicação na porta 8001
+2024-09-29 11:46:12 INFO  App:126 - Lendo string de conexão ao MongoDB a partir do application.properties
+2024-09-29 11:46:12 INFO  App:133 - Conectando ao MongoDB
+2024-09-29 11:46:12 INFO  client:71 - MongoClient with metadata {"application": {"name": "POO"}, "driver": {"name": "mongo-java-driver|sync", "version": "5.1.1"}, "os": {"type": "Windows", "name": "Windows 10", "architecture": "amd64", "version": "10.0"}, "platform": "Java/Azul Systems, Inc./21.0.4+7-LTS"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=majority, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=MongoCredential{mechanism=null, userName='Elksandro', source='admin', password=<hidden>, mechanismProperties=<hidden>}, transportSettings=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@3670f00, com.mongodb.Jep395RecordCodecProvider@452e26d0, com.mongodb.KotlinCodecProvider@46ab18da]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[127.0.0.1:27017], srvHost=poo.9vngvrw.mongodb.net, srvServiceName=mongodb, mode=MULTIPLE, requiredClusterType=REPLICA_SET, requiredReplicaSetName='atlas-3zdxst-shard-0', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='15 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, proxySettings=ProxySettings{host=null, port=null, username=null, password=null}}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverMonitoringMode=AUTO, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=true, invalidHostNameAllowed=false, context=null}, applicationName='POO', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=null, autoEncryptionSettings=null, dnsClient=null, inetAddressResolver=null, contextProvider=null}
+2024-09-29 11:46:12 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:46:12 INFO  cluster:71 - Waiting for server to become available for operation with ID 1. Remaining time: 30000 ms. Selector: ReadPreferenceServerSelector{readPreference=primary}, topology description: {type=UNKNOWN, servers=[].
+2024-09-29 11:46:12 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:46:12 INFO  cluster:71 - Adding discovered server ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 to client view of cluster
+2024-09-29 11:46:13 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=371819300, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az1'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fa05d9d3a731c2af8276, counter=4}, lastWriteDate=Sun Sep 29 11:46:13 BRT 2024, lastUpdateTimeNanos=2059161826300}
+2024-09-29 11:46:13 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, type=REPLICA_SET_PRIMARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=371820700, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az2'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=7fffffff0000000000000027, setVersion=20, topologyVersion=TopologyVersion{processId=66e9f905b907830bc13f6be5, counter=6}, lastWriteDate=Sun Sep 29 11:46:13 BRT 2024, lastUpdateTimeNanos=2059161826300}
+2024-09-29 11:46:13 INFO  cluster:71 - Monitor thread successfully connected to server with description ServerDescription{address=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, type=REPLICA_SET_SECONDARY, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=21, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=371131700, setName='atlas-3zdxst-shard-0', canonicalAddress=ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, hosts=[ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-01.9vngvrw.mongodb.net:27017, ac-xdjmozx-shard-00-00.9vngvrw.mongodb.net:27017], passives=[], arbiters=[], primary='ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017', tagSet=TagSet{[Tag{name='availabilityZone', value='sae1-az3'}, Tag{name='diskState', value='READY'}, Tag{name='nodeType', value='ELECTABLE'}, Tag{name='provider', value='AWS'}, Tag{name='region', value='SA_EAST_1'}, Tag{name='workloadType', value='OPERATIONAL'}]}, electionId=null, setVersion=20, topologyVersion=TopologyVersion{processId=66e9fb09801000d255b21d1c, counter=3}, lastWriteDate=Sun Sep 29 11:46:13 BRT 2024, lastUpdateTimeNanos=2059161826300}
+2024-09-29 11:46:13 INFO  cluster:71 - Discovered replica set primary ac-xdjmozx-shard-00-02.9vngvrw.mongodb.net:27017 with max election id 7fffffff0000000000000027 and max set version 20
+2024-09-29 11:46:13 INFO  App:136 - Conexão com o MongoDB estabelecida com sucesso
+2024-09-29 11:46:13 INFO  Javalin:16 - Starting Javalin ...
+2024-09-29 11:46:13 INFO  Server:384 - jetty-11.0.21; built: 2024-05-14T03:19:28.958Z; git: 996cd61addad9cb033e0e3eba6fa3f0fa3dc270d; jvm 21.0.4+7-LTS
+2024-09-29 11:46:13 INFO  DefaultSessionIdManager:332 - Session workerName=node0
+2024-09-29 11:46:14 INFO  ContextHandler:907 - Started o.e.j.s.ServletContextHandler@5f2afe62{/,null,AVAILABLE}
+2024-09-29 11:46:14 INFO  AbstractConnector:376 - Started ServerConnector@17a1e4ca{HTTP/1.1, (http/1.1)}{0.0.0.0:8001}
+2024-09-29 11:46:14 INFO  Server:439 - Started Server@bae47a0{STARTING}[11.0.21,sto=0] @3509ms
+2024-09-29 11:46:14 INFO  Javalin:16 - 
+       __                  ___           _____
+      / /___ __   ______ _/ (_)___      / ___/
+ __  / / __ `/ | / / __ `/ / / __ \    / __ \
+/ /_/ / /_/ /| |/ / /_/ / / / / / /   / /_/ /
+\____/\__,_/ |___/\__,_/_/_/_/ /_/    \____/
+
+       https://javalin.io/documentation
+
+2024-09-29 11:46:14 INFO  Javalin:16 - Javalin started in 1967ms \o/
+2024-09-29 11:46:14 INFO  Javalin:21 - Static file handler added: StaticFileConfig(hostedPath=/, directory=/public, location=CLASSPATH, precompress=false, aliasCheck=null, headers={Cache-Control=max-age=0}, skipFileFunction=Function1<jakarta.servlet.http.HttpServletRequest, java.lang.Boolean>, mimeTypes={}). File system location: 'file:///H:/Meu%20Drive/POO/poo-projeto-g1/target/classes/public/'
+2024-09-29 11:46:14 INFO  Javalin:16 - Listening on http://localhost:8001/
+2024-09-29 11:46:14 INFO  Javalin:16 - You are running Javalin 6.2.0 (released July 21, 2024).
+2024-09-29 11:47:10 INFO  LoginController:33 - Usuário 'elk@gmail.com' autenticado com sucesso.

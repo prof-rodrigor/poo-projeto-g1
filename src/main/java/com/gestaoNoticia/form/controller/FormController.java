@@ -52,6 +52,7 @@ public class FormController {
 
 
         if (erros.isEmpty()) {
+            form.persistir();
             context.render("/forms/sucesso.html");
         } else {
             context.attribute("form", form);

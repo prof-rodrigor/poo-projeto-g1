@@ -1,6 +1,8 @@
 package com.gestaoNoticia.noticia.controllers;
 
 import com.gestaoNoticia.Keys;
+import com.gestaoNoticia.form.model.Formulario;
+import com.gestaoNoticia.form.service.FormService;
 import com.gestaoNoticia.noticia.model.Noticia;
 import com.gestaoNoticia.noticia.service.NoticiaService;
 import io.javalin.http.Context;
@@ -66,7 +68,11 @@ public class NoticiaController {
         ctx.attribute("valores", ctx.sessionAttribute("valores"));
         ctx.sessionAttribute("valores", null);
         ctx.sessionAttribute("error", null);
-        ctx.render("/noticias/form_noticia.html");
+        FormService formService = ctx.appData(Keys.FORM_SERVICE.key());
+        String formId = ctx.pathParam("formId");
+        Formulario form = formService.getFormulario(formId);
+        ctx.attribute("form", form);
+        ctx.render("/forms/formulario.html");
     }
 
     public static void listarNoticias(Context ctx) {

@@ -51,7 +51,7 @@ public class App {
         NoticiaService noticiaService = new NoticiaService(mongoDBRepository);
         config.appData(Keys.NOTICIA_SERVICE.key(), noticiaService);
         config.appData(Keys.USUARIO_SERVICE.key(), new UsuarioService(mongoDBRepository));
-        config.appData(Keys.FORM_SERVICE.key(), new FormService());
+        config.appData(Keys.FORM_SERVICE.key(), new FormService(mongoDBRepository));
     }
 
    private void configurarPaginasDeErro(Javalin app) {
@@ -154,7 +154,7 @@ public class App {
         app.get("/v1/noticias/{id}", NoticiaController::getNoticiaId);
 
         // NOTÍCIAS
-        app.get("/noticias/novo", NoticiaController::mostrarFormularioCadastro);
+        app.get("/noticias/novo/{formId}", NoticiaController::mostrarFormularioCadastro);
         app.post("/noticias", NoticiaController::adicionarNoticia);
         app.get("/lista", NoticiaController::listarNoticias);
         app.get("/noticias/{id}/view", NoticiaController::verNoticia);

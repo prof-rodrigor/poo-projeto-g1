@@ -9,6 +9,7 @@ public class Formulario {
     private Map<String,Campo> campos = new LinkedHashMap<>();
     private String nome;
     private final String id;
+    private PersistenciaFormulario persistencia;
 
     public Formulario( String id, String nome){
         this.nome = nome;
@@ -37,6 +38,16 @@ public class Formulario {
 
     public void setNome(String nome){
         this.nome = nome;
+    }
+
+    public void setPersistencia(PersistenciaFormulario persistencia){
+        this.persistencia = persistencia;
+    }
+
+    public void persistir(){
+        if(persistencia != null){
+            persistencia.persistir(this);
+        }
     }
 
     @Override

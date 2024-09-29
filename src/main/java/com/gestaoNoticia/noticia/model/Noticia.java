@@ -80,7 +80,7 @@ public class Noticia {
     }
 
     public void verificaDados(String id,String titulo, String subtitulo, String conteudo, String autor, String categoria, LocalDateTime dataPublicacao) {
-        if (id == null || id.trim().isEmpty()) throw new IllegalArgumentException();
+        //if (id == null || id.trim().isEmpty()) throw new IllegalArgumentException();
         if (titulo == null || titulo.trim().isEmpty()) throw new IllegalArgumentException();
         if (subtitulo == null || subtitulo.trim().isEmpty()) throw new IllegalArgumentException();
         if (conteudo == null || conteudo.trim().isEmpty()) throw new IllegalArgumentException();
