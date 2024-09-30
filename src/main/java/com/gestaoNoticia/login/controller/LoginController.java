@@ -39,14 +39,21 @@ public class LoginController {
         }
     }
 
-    public static void verificar(Context ctx) {
-        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
-
-        String login = ctx.formParam("login");
-        String senha = ctx.formParam("senha");
-
-        usuarioService.buscarUsuario(login, senha);
-    }
+    //public static void verificar(Context ctx) {
+    //    UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
+//
+    //    String login = ctx.formParam("login");
+    //    String senha = ctx.formParam("senha");
+//
+    //    Usuario usuario = usuarioService.buscarUsuario(login, senha);
+    //    if (usuario != null) {
+    //        logger.info("Usuário "+ usuario.getLogin() +" autenticado com sucesso");
+    //        ctx.sessionAttribute("usuario", usuario);
+    //        ctx.redirect("usuarios");
+    //    } else {
+    //        ctx.redirect("/login");
+    //    }
+    //}
 
     public static void logout(Context ctx) {
         ctx.sessionAttribute("usuario", null);

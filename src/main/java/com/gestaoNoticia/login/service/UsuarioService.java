@@ -20,6 +20,8 @@ import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+import static java.net.HttpURLConnection.HTTP_OK;
+
 
 public class UsuarioService {
 
@@ -77,7 +79,7 @@ public class UsuarioService {
         );
     }
 
-    public void buscarUsuario(String login, String senha){
+    public Usuario buscarUsuario(String login, String senha){
 
         HttpClient httpClient = HttpClient.newHttpClient();
         String url = "http://localhost:8000/v1/autenticar";
@@ -93,9 +95,13 @@ public class UsuarioService {
                     .POST(HttpRequest.BodyPublishers.ofString(json, StandardCharsets.UTF_8))
                     .build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-            logger.info("usuário autenticado com sucesso");
+            if (response.statusCode() == HTTP_OK) {
+                Usuario usuario = mapper.readValue(response.body(), Usuario.class);
+                return usuario;
+            }
         } catch (Exception exception) {
             logger.error(exception);
         }
+        return null;
     }
 }

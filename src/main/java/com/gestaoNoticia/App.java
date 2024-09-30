@@ -146,7 +146,7 @@ public class App {
         //LOGIN
         app.get("/", ctx -> ctx.redirect("/login"));
         app.get("/login", LoginController::mostrarPaginaLogin);
-        app.post("/login", LoginController::verificar);
+        app.post("/login", LoginController::processarLogin);
         app.get("/logout", LoginController::logout);
 
         // API
