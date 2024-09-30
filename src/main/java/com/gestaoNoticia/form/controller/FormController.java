@@ -17,6 +17,10 @@ public class FormController {
     private static final Logger logger = LogManager.getLogger(FormController.class);
 
     public void abrirFormulario(Context ctx) {
+        if (!usuarioLogado(ctx)){
+            ctx.redirect("/login");
+            return;
+        }
         FormService formService = ctx.appData(Keys.FORM_SERVICE.key());
         String formId = ctx.pathParam("formId");
         Formulario form = formService.getFormulario(formId);
@@ -53,11 +57,14 @@ public class FormController {
 
         if (erros.isEmpty()) {
             form.persistir();
-            context.render("/forms/sucesso.html");
+            form.getCampos().forEach(campo -> campo.setValor(null));
+            context.redirect(form.getRedirecionar());
         } else {
             context.attribute("form", form);
             context.attribute("erros", erros);
             context.render("/forms/formulario.html");
         }
     }
+
+    private static boolean usuarioLogado(Context ctx){return ctx.sessionAttribute("usuario") != null;}
 }

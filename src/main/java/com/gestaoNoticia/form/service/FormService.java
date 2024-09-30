@@ -29,7 +29,7 @@ public class FormService extends AbstractService {
     }
 
     public void iniciarFormularios(){
-        Formulario form = new Formulario("noticia", "Cadastro de Noticia");
+        Formulario form = new Formulario("noticia", "Cadastro de Noticia", "/lista");
         form.addCampo(new Campo("titulo", "Titulo", "input", new ValidadorTexto(10, 150), true));
         form.addCampo(new Campo("subtitulo", "Subtitulo","input", new ValidadorTexto(10, 150), true));
         form.addCampo(new Campo("conteudo", "Conteudo","textarea", new ValidadorTexto(100, 7000), true));

@@ -9,11 +9,13 @@ public class Formulario {
     private Map<String,Campo> campos = new LinkedHashMap<>();
     private String nome;
     private final String id;
+    private final String redirecionar;
     private PersistenciaFormulario persistencia;
 
-    public Formulario( String id, String nome){
+    public Formulario( String id, String nome, String redirecionar){
         this.nome = nome;
         this.id = id;
+        this.redirecionar = redirecionar;
     }
 
     public void addCampo(Campo campo){
@@ -38,6 +40,10 @@ public class Formulario {
 
     public void setNome(String nome){
         this.nome = nome;
+    }
+
+    public String getRedirecionar() {
+        return redirecionar;
     }
 
     public void setPersistencia(PersistenciaFormulario persistencia){

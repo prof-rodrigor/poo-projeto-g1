@@ -94,20 +94,19 @@ public class NoticiaController {
         String conteudo = ctx.formParam("conteudo");
         String autor = ctx.formParam("autor");
         String categoria = ctx.formParam("categoria");
+        ctx.redirect("/lista");
 
-
-        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria, ctx)) {
-            noticia.setTitulo(titulo);
-            noticia.setSubtitulo(subtitulo);
-            noticia.setConteudo(conteudo);
-            noticia.setAutor(autor);
-            noticia.setCategoria(categoria);
-            noticia.setDataPublicacao(LocalDateTime.now());
-            noticiaService.adicionarNoticia(noticia);
-            ctx.redirect("/lista");
-        } else {
-            ctx.redirect("/noticias/novo");
-        }
+//        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria, ctx)) {
+//            noticia.setTitulo(titulo);
+//            noticia.setSubtitulo(subtitulo);
+//            noticia.setConteudo(conteudo);
+//            noticia.setAutor(autor);
+//            noticia.setCategoria(categoria);
+//            noticia.setDataPublicacao(LocalDateTime.now());
+//            noticiaService.adicionarNoticia(noticia);
+//        } else {
+//            ctx.redirect("/noticias/novo");
+//        }
     }
 
     public static void removerNoticia(Context ctx) {
