@@ -1,5 +1,6 @@
 package com.gestaoNoticia.login.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gestaoNoticia.db.MongoDBRepository;
 import com.gestaoNoticia.login.controller.LoginController;
@@ -16,12 +17,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
-import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
-import static java.net.HttpURLConnection.HTTP_OK;
 
 public class UsuarioService {
 
@@ -79,27 +77,25 @@ public class UsuarioService {
         );
     }
 
-//    public Optional<Usuario> buscarUsuario(String email, String senha){
-//        String host = "10.0.1.40:8000";
-//        String url = host + "/v1/autenticar";
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(URI.create(url))
-//                .build();
-//        try (HttpClient client = HttpClient.newHttpClient()) {
-//            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//            if (response.statusCode() == HTTP_OK) {
-//                ObjectMapper mapper = new ObjectMapper();
-//                return Optional.of(mapper.readValue(response.body(), Usuario.class));
-//            } else if (response.statusCode() == HTTP_NOT_FOUND) {
-//                return Optional.empty();
-//            } else {
-//                logger.error("Erro ao recuperar participante: {}", response.statusCode());
-//                throw new RuntimeException("Erro ao recuperar participante: " + response.statusCode());
-//            }
-//        } catch (Exception e) {
-//            logger.error("Erro ao recuperar participante", e);
-//            throw new RuntimeException("Erro ao recuperar participante", e);
-//        }
-//
-//    }
+    public void buscarUsuario(String login, String senha){
+
+        HttpClient httpClient = HttpClient.newHttpClient();
+        String url = "http://localhost:8000/v1/autenticar";
+        Map<String, String> dados = new HashMap<>();
+        dados.put("login", login);
+        dados.put("senha", senha);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            String json = mapper.writeValueAsString(dados);
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("Content-type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json, StandardCharsets.UTF_8))
+                    .build();
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+            logger.info("usuário autenticado com sucesso");
+        } catch (Exception exception) {
+            logger.error(exception);
+        }
+    }
 }

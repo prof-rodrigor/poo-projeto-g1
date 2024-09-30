@@ -39,6 +39,15 @@ public class LoginController {
         }
     }
 
+    public static void verificar(Context ctx) {
+        UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
+
+        String login = ctx.formParam("login");
+        String senha = ctx.formParam("senha");
+
+        usuarioService.buscarUsuario(login, senha);
+    }
+
     public static void logout(Context ctx) {
         ctx.sessionAttribute("usuario", null);
         ctx.redirect("/login");
