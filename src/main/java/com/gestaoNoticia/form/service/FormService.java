@@ -7,8 +7,6 @@ import com.gestaoNoticia.form.model.Formulario;
 import com.gestaoNoticia.form.model.validadores.ValidadorTexto;
 import com.gestaoNoticia.noticia.model.PersistenciaNoticia;
 import com.gestaoNoticia.noticia.service.NoticiaService;
-import com.mongodb.client.MongoCollection;
-import org.bson.Document;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,11 +14,9 @@ import java.util.Map;
 public class FormService extends AbstractService {
 
     private final Map<String, Formulario> formularios = new LinkedHashMap<>();
-    private final MongoCollection<Document> noticiasColletion;
 
     public FormService(MongoDBRepository mongoDBRepository){
         super(mongoDBRepository);
-        this.noticiasColletion = mongoDBRepository.getDatabase("gestaoNoticia").getCollection("noticias");
         iniciarFormularios();
     }
 
