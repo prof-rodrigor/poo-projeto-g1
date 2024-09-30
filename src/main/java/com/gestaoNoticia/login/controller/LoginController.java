@@ -8,8 +8,6 @@ import org.mindrot.jbcrypt.BCrypt;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Optional;
-
 public class LoginController {
 
     private static final Logger logger = LogManager.getLogger(LoginController.class);
@@ -29,18 +27,15 @@ public class LoginController {
 
 
         UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
-        Optional<Usuario> usuarioOptional = usuarioService.buscarUsuario(login, senha);
-        if (usuarioOptional.isPresent()) {
-            Usuario usuario = usuarioOptional.get();
-            if (usuario != null && BCrypt.checkpw(senha, usuario.getSenha())) {
-                ctx.sessionAttribute("usuario", usuario);
-                logger.info("Usuário '{}' autenticado com sucesso.", login);
-                ctx.redirect("/usuarios");
-            } else {
-                logger.warn("Tentativa de login falhou para o usuário: {}", login);
-                ctx.attribute("erro", "Usuário ou senha inválidos");
-                ctx.render("/usuarios/login.html");
-            }
+        Usuario usuario = usuarioService.buscarUsuarioPorLogin(login);
+        if (usuario != null && BCrypt.checkpw(senha, usuario.getSenha())) {
+            ctx.sessionAttribute("usuario", usuario);
+            logger.info("Usuário '{}' autenticado com sucesso.", login);
+            ctx.redirect("/usuarios");
+        } else {
+            logger.warn("Tentativa de login falhou para o usuário: {}", login);
+            ctx.attribute("erro", "Usuário ou senha inválidos");
+            ctx.render("/usuarios/login.html");
         }
     }
 
