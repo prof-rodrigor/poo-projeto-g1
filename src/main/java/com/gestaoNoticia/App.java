@@ -154,8 +154,8 @@ public class App {
         app.get("/v1/noticias/{id}", NoticiaController::getNoticiaId);
 
         // NOTÍCIAS
-        app.get("/noticias/novo/{formId}", NoticiaController::mostrarFormularioCadastro);
-        app.post("/noticias", NoticiaController::adicionarNoticia);
+        //app.get("/noticias/novo/{formId}", NoticiaController::mostrarFormularioCadastro);
+        //app.post("/noticias", NoticiaController::adicionarNoticia);
         app.get("/lista", NoticiaController::listarNoticias);
         app.get("/noticias/{id}/view", NoticiaController::verNoticia);
         app.get("/noticias/{id}/remover", NoticiaController::removerNoticia);

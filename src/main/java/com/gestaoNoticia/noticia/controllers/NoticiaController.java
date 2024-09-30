@@ -86,28 +86,28 @@ public class NoticiaController {
         ctx.render("/noticias/lista_noticias.html");
     }
 
-    public static void adicionarNoticia(Context ctx) {
-        NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
-        Noticia noticia = new Noticia();
-        String titulo = ctx.formParam("titulo");
-        String subtitulo = ctx.formParam("subtitulo");
-        String conteudo = ctx.formParam("conteudo");
-        String autor = ctx.formParam("autor");
-        String categoria = ctx.formParam("categoria");
-        ctx.redirect("/lista");
-
-//        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria, ctx)) {
-//            noticia.setTitulo(titulo);
-//            noticia.setSubtitulo(subtitulo);
-//            noticia.setConteudo(conteudo);
-//            noticia.setAutor(autor);
-//            noticia.setCategoria(categoria);
-//            noticia.setDataPublicacao(LocalDateTime.now());
-//            noticiaService.adicionarNoticia(noticia);
-//        } else {
-//            ctx.redirect("/noticias/novo");
-//        }
-    }
+//    public static void adicionarNoticia(Context ctx) {
+//        NoticiaService noticiaService = ctx.appData(Keys.NOTICIA_SERVICE.key());
+//        Noticia noticia = new Noticia();
+//        String titulo = ctx.formParam("titulo");
+//        String subtitulo = ctx.formParam("subtitulo");
+//        String conteudo = ctx.formParam("conteudo");
+//        String autor = ctx.formParam("autor");
+//        String categoria = ctx.formParam("categoria");
+//        ctx.redirect("/lista");
+//
+////        if (verificaDadosNoticia(titulo, subtitulo, conteudo, autor, categoria, ctx)) {
+////            noticia.setTitulo(titulo);
+////            noticia.setSubtitulo(subtitulo);
+////            noticia.setConteudo(conteudo);
+////            noticia.setAutor(autor);
+////            noticia.setCategoria(categoria);
+////            noticia.setDataPublicacao(LocalDateTime.now());
+////            noticiaService.adicionarNoticia(noticia);
+////        } else {
+////            ctx.redirect("/noticias/novo");
+////        }
+//    }
 
     public static void removerNoticia(Context ctx) {
         if (!usuarioLogado(ctx)) {
