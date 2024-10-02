@@ -4,7 +4,8 @@ import com.gestaoNoticia.AbstractService;
 import com.gestaoNoticia.db.MongoDBRepository;
 import com.gestaoNoticia.form.model.Campo;
 import com.gestaoNoticia.form.model.Formulario;
-import com.gestaoNoticia.form.model.validadores.ValidadorTexto;
+import com.gestaoNoticia.form.model.validadores.validadorFormulario.ValidarFormularioNoticia;
+import com.gestaoNoticia.form.model.validadores.validadoresCampo.ValidadorTexto;
 import com.gestaoNoticia.noticia.model.PersistenciaNoticia;
 import com.gestaoNoticia.noticia.service.NoticiaService;
 
@@ -32,6 +33,8 @@ public class FormService extends AbstractService {
         form.addCampo(new Campo("categoria", "Categoria","input", new ValidadorTexto(2, 30), true));
         form.addCampo(new Campo("autor", "Autor","input", new ValidadorTexto(2, 80), true));
         form.setPersistencia(new PersistenciaNoticia(new NoticiaService(mongoDBRepository)));
+        form.setValidadorFormulario(new ValidarFormularioNoticia());
         formularios.put(form.getId(), form);
     }
+
 }

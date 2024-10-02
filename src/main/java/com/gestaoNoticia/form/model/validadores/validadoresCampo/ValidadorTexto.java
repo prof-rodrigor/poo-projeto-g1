@@ -1,4 +1,4 @@
-package com.gestaoNoticia.form.model.validadores;
+package com.gestaoNoticia.form.model.validadores.validadoresCampo;
 
 import com.gestaoNoticia.form.model.ResultadoValidacao;
 import com.gestaoNoticia.form.model.ValidadorCampo;

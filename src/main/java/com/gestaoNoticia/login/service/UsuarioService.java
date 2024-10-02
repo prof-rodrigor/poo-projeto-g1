@@ -88,11 +88,11 @@ public class UsuarioService {
         dados.put("senha", senha);
         ObjectMapper mapper = new ObjectMapper();
         try {
-            String json = mapper.writeValueAsString(dados);
+            String loginJson = mapper.writeValueAsString(dados);
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
                     .header("Content-type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(json, StandardCharsets.UTF_8))
+                    .POST(HttpRequest.BodyPublishers.ofString(loginJson, StandardCharsets.UTF_8))
                     .build();
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
             if (response.statusCode() == HTTP_OK) {

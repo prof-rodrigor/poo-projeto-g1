@@ -28,7 +28,6 @@ public class FormController {
         ctx.render("/forms/formulario.html");
     }
 
-
     public void validarFormulario(@NotNull Context context) {
         FormService formService = context.appData(Keys.FORM_SERVICE.key());
         String formId = context.pathParam("formId");
@@ -40,25 +39,23 @@ public class FormController {
             return;
         }
 
-        Map<String, ResultadoValidacao> erros = new LinkedHashMap<>();
         form.getCampos().forEach(campo -> {
             String valor = context.formParam(campo.getId());
-            if (campo.isObrigatorio() && (valor == null || valor.trim().isEmpty())) {
-                erros.put(campo.getId(), new ResultadoValidacao("Campo obrigatório"));
-            } else {
-                campo.setValor(valor);
-                ResultadoValidacao resultado = campo.validar();
-                if (!resultado.ok()) {
-                    erros.put(campo.getId(), resultado);
-                }
-            }
+            campo.setValor(valor);
         });
-
+        Map<String, ResultadoValidacao> erros = form.validarCampos();
 
         if (erros.isEmpty()) {
-            form.persistir();
-            form.getCampos().forEach(campo -> campo.setValor(null));
-            context.redirect(form.getRedirecionar());
+            if (form.validarFormulario().ok()) {
+                form.persistir();
+                form.getCampos().forEach(campo -> campo.setValor(null));
+                context.redirect(form.getRedirecionar());
+            } else {
+                erros.put("formularioValido", form.validarFormulario());
+                context.attribute("form", form);
+                context.attribute("erros", erros);
+                context.render("/forms/formulario.html");
+            }
         } else {
             context.attribute("form", form);
             context.attribute("erros", erros);

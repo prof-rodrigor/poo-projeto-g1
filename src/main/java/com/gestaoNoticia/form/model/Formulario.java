@@ -4,13 +4,14 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Formulario {
+public class Formulario implements Form{
 
     private Map<String,Campo> campos = new LinkedHashMap<>();
     private String nome;
     private final String id;
     private final String redirecionar;
     private PersistenciaFormulario persistencia;
+    private ValidadorFormulario validadorFormulario;
 
     public Formulario( String id, String nome, String redirecionar){
         this.nome = nome;
@@ -48,6 +49,25 @@ public class Formulario {
 
     public void setPersistencia(PersistenciaFormulario persistencia){
         this.persistencia = persistencia;
+    }
+
+    public void setValidadorFormulario(ValidadorFormulario validadorFormulario) {
+        this.validadorFormulario = validadorFormulario;
+    }
+
+    public Map<String, ResultadoValidacao> validarCampos() {
+        Map<String, ResultadoValidacao> erros = new LinkedHashMap<>();
+        getCampos().forEach(campo -> {
+            ResultadoValidacao resultado = campo.validar();
+            if (!resultado.ok()) {
+                erros.put(campo.getId(), resultado);
+            }
+        });
+        return erros;
+    }
+
+    public ResultadoValidacao validarFormulario() {
+        return validadorFormulario.validar(this);
     }
 
     public void persistir(){
