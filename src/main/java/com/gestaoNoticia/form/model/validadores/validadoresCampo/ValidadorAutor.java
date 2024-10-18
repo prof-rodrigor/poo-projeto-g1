@@ -4,15 +4,10 @@ import com.gestaoNoticia.form.model.ResultadoValidacao;
 import com.gestaoNoticia.form.model.ValidadorCampo;
 import com.gestaoNoticia.form.model.validadores.ValidadorDecorator;
 
-public class ValidadorTexto extends ValidadorDecorator {
+public class ValidadorAutor extends ValidadorDecorator {
 
-    private int min;
-    private int max;
-
-    public ValidadorTexto(ValidadorCampo validadorCampo, int min, int max){
-        super(validadorCampo);
-        this.min = min;
-        this.max = max;
+    public ValidadorAutor(ValidadorCampo validadorDecorado) {
+        super(validadorDecorado);
     }
 
     @Override
@@ -21,9 +16,11 @@ public class ValidadorTexto extends ValidadorDecorator {
         if (!resultado.ok()) {
             return resultado;
         }
-        if(valor.length() < min || valor.length() > max){
-            return new ResultadoValidacao( "O valor deve ter entre " + min + " e " + max + " caracteres");
+
+        if (valor.matches(".*\\d.*")) {
+            return new ResultadoValidacao("O nome do autor não pode conter números");
         }
+
         return new ResultadoValidacao();
     }
 }
