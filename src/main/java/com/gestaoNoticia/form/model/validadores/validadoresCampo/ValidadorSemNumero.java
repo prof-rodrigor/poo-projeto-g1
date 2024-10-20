@@ -4,9 +4,9 @@ import com.gestaoNoticia.form.model.ResultadoValidacao;
 import com.gestaoNoticia.form.model.ValidadorCampo;
 import com.gestaoNoticia.form.model.validadores.ValidadorDecorator;
 
-public class ValidadorAutor extends ValidadorDecorator {
+public class ValidadorSemNumero extends ValidadorDecorator {
 
-    public ValidadorAutor(ValidadorCampo validadorDecorado) {
+    public ValidadorSemNumero(ValidadorCampo validadorDecorado) {
         super(validadorDecorado);
     }
 
@@ -18,7 +18,7 @@ public class ValidadorAutor extends ValidadorDecorator {
         }
 
         if (valor.matches(".*\\d.*")) {
-            return new ResultadoValidacao("O nome do autor não pode conter números");
+            return new ResultadoValidacao("Esse campo não pode conter números");
         }
 
         return new ResultadoValidacao();
