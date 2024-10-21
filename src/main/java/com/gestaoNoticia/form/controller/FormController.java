@@ -17,14 +17,19 @@ public class FormController {
     private static final Logger logger = LogManager.getLogger(FormController.class);
 
     public void abrirFormulario(Context ctx) {
-        if (!usuarioLogado(ctx)){
+        if (!usuarioLogado(ctx)) {
             ctx.redirect("/login");
             return;
         }
         FormService formService = ctx.appData(Keys.FORM_SERVICE.key());
         String formId = ctx.pathParam("formId");
         Formulario form = formService.getFormulario(formId);
+
+        form.getCampos().forEach(campo -> {
+            campo.setValor(null);
+        });
         ctx.attribute("form", form);
+        ctx.attribute("erros", null);
         ctx.render("/forms/formulario.html");
     }
 
