@@ -79,6 +79,12 @@ public class Campo implements ComponenteForm{
         if (this.entrada.equals("textarea")) {
             campo += "</textarea>";
         }
+
+        if (this.valor != null && validar().getMensagem() != "") {
+            String erro = validar().getMensagem();
+            campo += "<div class='text-danger'><p>"+erro+"</p></div>";
+            setValor(null);
+        }
         campo += "</div>";
 
         return campo;

@@ -91,7 +91,11 @@ public class Formulario extends ComponenteComposto implements Form{
         for (ComponenteForm componente : componentes){
             form += componente.getConteudo();
         }
-        form += "<button class='btn btn-primary'>Enviar</button></form>";
+        form += "<div class='mt-4'>"+
+                "<button class='btn btn-primary'>Enviar</button>" +
+                "<a href='"+redirecionar+"' class='btn btn-danger'>Cancelar</a>"+
+                "</div>"+
+                "</form>";
         return form;
     }
 }
