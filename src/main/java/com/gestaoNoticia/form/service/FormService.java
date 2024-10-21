@@ -4,6 +4,8 @@ import com.gestaoNoticia.AbstractService;
 import com.gestaoNoticia.db.MongoDBRepository;
 import com.gestaoNoticia.form.model.Campo;
 import com.gestaoNoticia.form.model.Formulario;
+import com.gestaoNoticia.form.model.Secao;
+import com.gestaoNoticia.form.model.Titulo;
 import com.gestaoNoticia.form.model.validadores.ValidadorComposto;
 import com.gestaoNoticia.form.model.validadores.validadorFormulario.ValidarFormularioNoticia;
 import com.gestaoNoticia.form.model.validadores.validadoresCampo.ValidadorCaptalizacao;
@@ -12,6 +14,9 @@ import com.gestaoNoticia.form.model.validadores.validadoresCampo.ValidadorSemNum
 import com.gestaoNoticia.form.model.validadores.validadoresCampo.ValidadorTexto;
 import com.gestaoNoticia.noticia.model.PersistenciaNoticia;
 import com.gestaoNoticia.noticia.service.NoticiaService;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
+import org.bson.types.ObjectId;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -44,6 +49,14 @@ public class FormService extends AbstractService {
         form.setPersistencia(new PersistenciaNoticia(new NoticiaService(mongoDBRepository)));
         form.setValidadorFormulario(new ValidarFormularioNoticia());
         formularios.put(form.getId(), form);
-    }
 
+        Secao secao = new Secao();
+        secao.addComponente(new Titulo("Cadastro de Notícias"));
+        secao.addComponente(form.getCampo("titulo"));
+        secao.addComponente(form.getCampo("subtitulo"));
+        secao.addComponente(form.getCampo("conteudo"));
+        secao.addComponente(form.getCampo("categoria"));
+        secao.addComponente(form.getCampo("autor"));
+        form.addComponente(secao);
+    }
 }

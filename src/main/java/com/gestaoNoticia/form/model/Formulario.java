@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Formulario implements Form{
+public class Formulario extends ComponenteComposto implements Form{
 
     private Map<String,Campo> campos = new LinkedHashMap<>();
     private String nome;
@@ -85,4 +85,13 @@ public class Formulario implements Form{
                 '}';
     }
 
+    @Override
+    public String getConteudo() {
+        String form = "<form action='/form/"+this.id+"' method='POST'>";
+        for (ComponenteForm componente : componentes){
+            form += componente.getConteudo();
+        }
+        form += "<button class='btn btn-primary'>Enviar</button></form>";
+        return form;
+    }
 }

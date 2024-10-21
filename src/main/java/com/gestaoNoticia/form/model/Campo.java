@@ -1,6 +1,6 @@
 package com.gestaoNoticia.form.model;
 
-public class Campo {
+public class Campo implements ComponenteForm{
 
     private String id;
     private String label;
@@ -68,5 +68,19 @@ public class Campo {
 
     public void setObrigatorio(boolean obrigatorio) {
         this.obrigatorio = obrigatorio;
+    }
+
+    @Override
+    public String getConteudo() {
+        String campo = "<div class='form-group'>"
+                +"<label class='form-label'>"+this.label+"</label>"
+                +"<"+this.entrada+" type='text' class='form-control' id='"+this.id+"' name='"+this.id+"' >";
+
+        if (this.entrada.equals("textarea")) {
+            campo += "</textarea>";
+        }
+        campo += "</div>";
+
+        return campo;
     }
 }
