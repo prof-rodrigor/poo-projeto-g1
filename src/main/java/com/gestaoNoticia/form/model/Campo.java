@@ -73,20 +73,31 @@ public class Campo implements ComponenteForm{
     @Override
     public String getConteudo() {
         String campo = "<div class='form-group'>"
-                +"<label class='form-label'>"+this.label+"</label>"
-                +"<"+this.entrada+" type='text' class='form-control' id='"+this.id+"' name='"+this.id+"' >";
+                + "<label class='form-label'>" + this.label + "</label>";
 
         if (this.entrada.equals("textarea")) {
+            campo += "<textarea class='form-control' id='" + this.id + "' name='" + this.id + "'>";
+            if (this.valor != null) {
+                campo += this.valor;
+            }
             campo += "</textarea>";
+        } else {
+            campo += "<input type='text' class='form-control' id='" + this.id + "' name='" + this.id + "' ";
+            if (this.valor != null) {
+                campo += " value='" + this.valor + "'";
+            }
+            campo += ">";
         }
 
-        if (this.valor != null && validar().getMensagem() != "") {
-            String erro = validar().getMensagem();
-            campo += "<div class='text-danger'><p>"+erro+"</p></div>";
-            setValor(null);
+        ResultadoValidacao resultadoValidacao = validar();
+        if (this.valor != null && resultadoValidacao.getMensagem() != null && !resultadoValidacao.getMensagem().isEmpty()) {
+            String erro = resultadoValidacao.getMensagem();
+            campo += "<div class='text-danger'><p>" + erro + "</p></div>";
         }
+
         campo += "</div>";
 
         return campo;
     }
+
 }
