@@ -3,37 +3,36 @@ package com.gestaoNoticia.login.model;
 public class Usuario {
 
     private String id;
-    private String login;
-    private String nome;
+    private String email;
+    private String username;
     private String senha;
 
-    public Usuario(String id, String login, String nome, String senha) {
-        verificaDados(login, nome, senha, id);
-        this.id = id;
-        this.login = login;
-        this.nome = nome;
+    public Usuario(String email, String username, String senha) {
+        //verificaDados(login, nome, senha);
+        this.email = email;
+        this.username = username;
         this.senha = senha;
     }
 
     public Usuario() {
     }
 
-    public String getLogin() {
-        return login;
+    public String getEmail() {
+        return email;
     }
 
-    public void setLogin(String login) {
-        if (login == null || login.trim().isEmpty()) throw new IllegalArgumentException();
-        this.login = login;
+    public void setEmail(String email) {
+        if (email == null || email.trim().isEmpty()) throw new IllegalArgumentException();
+        this.email = email;
     }
 
-    public String getNome() {
-        return nome;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNome(String nome) {
-        if (nome == null || nome.trim().isEmpty()) throw new IllegalArgumentException();
-        this.nome = nome;
+    public void setUsername(String username) {
+        if (username == null || username.trim().isEmpty()) throw new IllegalArgumentException();
+        this.username = username;
     }
 
     public String getSenha() {
@@ -54,16 +53,16 @@ public class Usuario {
         this.id = id;
     }
 
-     private static void verificaDados(String login, String nome, String senha, String id) {
-         if (login == null || login.trim().isEmpty() || nome == null || nome.trim().isEmpty() || senha == null || senha.trim().isEmpty() || id == null || id.trim().isEmpty()) throw new IllegalArgumentException();
-     }
+     //private static void verificaDados(String login, String nome, String senha) {
+     //    if (login == null || login.trim().isEmpty() || nome == null || nome.trim().isEmpty() || senha == null || senha.trim().isEmpty()) throw new IllegalArgumentException();
+     //}
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "id='" + id + '\'' +
-                ", login='" + login + '\'' +
-                ", nome='" + nome + '\'' +
+                ", login='" + email + '\'' +
+                ", nome='" + username + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
     }

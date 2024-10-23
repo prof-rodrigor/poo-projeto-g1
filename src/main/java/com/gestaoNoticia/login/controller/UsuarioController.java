@@ -23,7 +23,7 @@ public class UsuarioController {
     public static void cadastrarUsuario(Context ctx) {
         UsuarioService usuarioService = ctx.appData(Keys.USUARIO_SERVICE.key());
         String nome = ctx.formParam("nome");
-        String email = ctx.formParam("login");
+        String email = ctx.formParam("email");
         String senha = ctx.formParam("senha");
 
         boolean signup = (ctx.formParam("signup") != null);
@@ -37,8 +37,8 @@ public class UsuarioController {
         }
 
         Usuario usuario = new Usuario();
-        usuario.setNome(nome);
-        usuario.setLogin(email);
+        usuario.setUsername(nome);
+        usuario.setEmail(email);
         usuario.setSenha(senha);
 
         usuarioService.cadastrarUsuario(usuario);

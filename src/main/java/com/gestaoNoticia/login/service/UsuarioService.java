@@ -1,6 +1,5 @@
 package com.gestaoNoticia.login.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gestaoNoticia.db.MongoDBRepository;
 import com.gestaoNoticia.login.controller.LoginController;
@@ -35,7 +34,7 @@ public class UsuarioService {
     }
 
     public void cadastrarUsuario(Usuario usuario) {
-        if (buscarUsuarioPorLogin(usuario.getLogin()) != null) {
+        if (buscarUsuarioPorLogin(usuario.getEmail()) != null) {
             throw new IllegalArgumentException("Já existe um usuário com este login.");
         }
         Document doc = usuarioToDocument(usuario);
@@ -56,7 +55,7 @@ public class UsuarioService {
     }
 
     public Usuario buscarUsuarioPorLogin(String login) {
-        Document doc = usuariosCollection.find(new Document("login", login)).first();
+        Document doc = usuariosCollection.find(new Document("email", login)).first();
         if (doc == null) {
             return null;
         }
@@ -65,16 +64,15 @@ public class UsuarioService {
 
     private Document usuarioToDocument(Usuario usuario) {
         String hashedSenha = BCrypt.hashpw(usuario.getSenha(), BCrypt.gensalt());
-        return new Document("login", usuario.getLogin())
-                .append("nome", usuario.getNome())
+        return new Document("email", usuario.getEmail())
+                .append("username", usuario.getUsername())
                 .append("senha", hashedSenha);
     }
 
     private Usuario documentToUsuario(Document doc) {
         return new Usuario(
-                doc.getObjectId("_id").toString(),
-                doc.getString("login"),
-                doc.getString("nome"),
+                doc.getString("email"),
+                doc.getString("username"),
                 doc.getString("senha")
         );
     }

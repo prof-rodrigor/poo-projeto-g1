@@ -20,10 +20,10 @@
         <tbody>
         <th:block th:each="usuario : ${usuarios}">
             <tr>
-                <td th:text="${usuario.login}">Login</td>
-                <td th:text="${usuario.nome}">Nome</td>
+                <td th:text="${usuario.email}">Login</td>
+                <td th:text="${usuario.username}">Nome</td>
                 <td>
-                    <button class="btn btn-danger btn-sm" th:data-id="${usuario.id}" onclick="removerUsuario(this)">
+                    <button class="btn btn-danger btn-sm" th:data-id="${usuario.email}" onclick="removerUsuario(this)">
                         Remover
                     </button>
                 </td>
