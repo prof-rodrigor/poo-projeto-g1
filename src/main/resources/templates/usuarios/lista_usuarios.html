@@ -23,7 +23,8 @@
                 <td th:text="${usuario.email}">Login</td>
                 <td th:text="${usuario.username}">Nome</td>
                 <td>
-                    <button class="btn btn-danger btn-sm" th:data-id="${usuario.email}" onclick="removerUsuario(this)">
+                    <button class="btn btn-danger btn-sm" th:data-email="${usuario.email}"
+                            onclick="if (confirm('Tem certeza que deseja remover este usuário?')) { removerUsuario(this); }">
                         Remover
                     </button>
                 </td>
@@ -33,8 +34,8 @@
     </table>
     <script>
         function removerUsuario(button) {
-            const id = button.getAttribute('data-id');
-            window.location.href = `/usuarios/${id}/remover`;
+            const email = button.getAttribute('data-email');
+            window.location.href = `/usuarios/${email}/remover`;
         }
     </script>
 </section>

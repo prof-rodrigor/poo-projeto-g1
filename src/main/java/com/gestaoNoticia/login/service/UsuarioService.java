@@ -50,8 +50,8 @@ public class UsuarioService {
         return usuarios;
     }
 
-    public void removerUsuario(String id) {
-        usuariosCollection.deleteOne(new Document("_id", new ObjectId(id)));
+    public void removerUsuario(String email) {
+        usuariosCollection.deleteOne(new Document("email", email));
     }
 
     public Usuario buscarUsuarioPorLogin(String login) {
