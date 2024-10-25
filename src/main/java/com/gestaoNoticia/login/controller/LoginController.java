@@ -46,6 +46,7 @@ public class LoginController {
         String senha = ctx.formParam("senha");
 
         Usuario usuario = usuarioService.buscarUsuario(login, senha);
+        logger.info(usuario);
         if (usuario != null) {
             logger.info("Usuário "+ usuario.getEmail() +" autenticado com sucesso");
             ctx.sessionAttribute("usuario", usuario);

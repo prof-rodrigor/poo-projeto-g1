@@ -1,5 +1,7 @@
 package com.gestaoNoticia.login.model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Usuario {
 
     private String id;
@@ -8,7 +10,7 @@ public class Usuario {
     private String senha;
 
     public Usuario(String email, String username, String senha) {
-        //verificaDados(login, nome, senha);
+        verificaDados(email, username, senha);
         this.email = email;
         this.username = username;
         this.senha = senha;
@@ -53,9 +55,9 @@ public class Usuario {
         this.id = id;
     }
 
-     //private static void verificaDados(String login, String nome, String senha) {
-     //    if (login == null || login.trim().isEmpty() || nome == null || nome.trim().isEmpty() || senha == null || senha.trim().isEmpty()) throw new IllegalArgumentException();
-     //}
+     private static void verificaDados(String email, String username, String senha) {
+         if (email == null || email.trim().isEmpty() || username == null || username.trim().isEmpty() || senha == null || senha.trim().isEmpty()) throw new IllegalArgumentException();
+     }
 
     @Override
     public String toString() {
